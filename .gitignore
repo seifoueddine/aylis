@@ -26,7 +26,7 @@ db/schema.rb
 .idea
 config/cable.yml
 /public/system/*
-/public/assets/
+
 /spec/tmp/*
 /config/development.sphinx.conf
 db/sphinx
