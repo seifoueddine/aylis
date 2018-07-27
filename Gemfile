@@ -37,7 +37,7 @@ end
 
 group :development do
   #gem 'capistrano-rails'
-  gem 'mysql2' 
+  gem 'mysql2', '>= 0.3.13', '< 0.5'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
