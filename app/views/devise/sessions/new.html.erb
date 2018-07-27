@@ -1,0 +1,335 @@
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="row" style="margin-top:20px">
+
+              <form role="form">
+                <fieldset>
+                  <h2>Please Sign In</h2>
+                  <hr class="colorgraph">
+                  <div class="form-group">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class: "form-control input-lg" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control input-lg" %>
+                  </div>
+                  <span class="button-checkbox">
+        					<% if devise_mapping.rememberable? -%>
+        					    <div class="field">
+        					      <%= f.check_box :remember_me %>
+                        <%= f.label :remember_me %>
+        					    </div>
+        					  <% end -%>
+
+        				</span>
+                  <hr class="colorgraph">
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+
+                      <%= f.submit "Log in", class: "btn btn-lg btn-success btn-block" %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+
+                      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-primary btn-block" %>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+
+
+          </div>
+
+          <%= link_to "J'ai oublié mon mot de passe ?", new_user_password_path %><br/>
+
+          <%#= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path %><br/>
+        <% end %>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="jumbotron hero">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </div>
+          <a  href="<%root_url%>"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li ><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+          <hr class="hidden-sm hidden-md hidden-lg" style="margin: 0 30px;">
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="text-center hero-row">
+      <h1 class="heading"><span>LIGHT</span>HOUSE</h1>
+      <h2 class="subheading">Met s Que Tu Veux Ici</h2>
+      <div class="btn-group">
+        <%= link_to "Sign up", new_user_registration_path ,class:"btn btn-lg btnx-blue"%>
+        <button class="btn btn-lg btnx-white" type="button" data-toggle="modal" data-target="#myModal" >Log in</button>
+      </div>
+    </div>
+    <div class="row header-features text-center hero-row hero-bottom">
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <div>
+          <h3>Grand titre</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet pulvinar laoreet. Curabitur nec rhoncus sapien, congue pretium justo. Aenean erat risus, pulvinar et volutpat.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span class="glyphicon glyphicon-cloud"></span>
+        <div>
+          <h3>Grand titre</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet pulvinar laoreet. Curabitur nec rhoncus sapien, congue pretium justo. Aenean erat risus, pulvinar et volutpat.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <div>
+          <h3>Grand titre</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet pulvinar laoreet. Curabitur nec rhoncus sapien, congue pretium justo. Aenean erat risus, pulvinar et volutpat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<style>
+
+  html, body {
+    background-color: #fcfcfc;
+    color: #131313;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+
+  header, section, footer, aside, nav, main, article, figure {
+    display: block;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+  }
+
+  .container-fluid {
+    margin: 0;
+    padding: 0;
+  }
+
+  .btnx-blue {
+    background-color: #2874A6;
+  }
+
+  .btnx-blue:hover,
+  .btnx-blue:focus,
+  .btnx-blue:active,
+  .btnx-blue:visited {
+    background-color: #1F618D;
+    color: #fcfcfc;
+  }
+
+  .btnx-white {
+    background-color: #fcfcfc;
+    color: #131313;
+  }
+
+  .btnx-white:hover {
+    background-color: #D0D3D4;
+    color: #131313;
+  }
+
+  .btnx-white:hover,
+  .btnx-white:focus,
+  .btnx-white:active,
+  .btnx-white:visited {
+    background-color: #D0D3D4;
+    color: #131313;
+  }
+
+  .navbar {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .navbar-header > div > span {
+    font-size: 32px;
+    color: #fcfcfc;
+  }
+
+  .navbar-header > div > span:hover {
+    cursor: pointer;
+  }
+
+
+
+  .navbar-nav a {
+    color: #fcfcfc;
+    font-size: 14px;
+  }
+
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    background-color: transparent;
+    color: #2874A6;
+  }
+
+  .nav > li.active {
+    border-bottom: 3px solid #2874A6;
+  }
+
+  .nav > hr {
+    border: 2px solid #2874A6;
+  }
+
+  .jumbotron.hero {
+    color: #fcfcfc;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url(<%= asset_path '1.jpg'%>);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: table;
+    border-radius: 0;
+  }
+
+  .jumbotron.hero .heading {
+    font-weight: 900;
+  }
+
+  .jumbotron.hero .heading > span {
+    color: #5499C7;
+  }
+
+  .jumbotron.hero .subheading {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: #5499C7;
+  }
+
+  .header-features {
+    padding: 10px;
+  }
+
+  .header-features > div {
+    padding: 0 50px;
+  }
+
+  .header-features > div > div {
+    border-left: 1px solid #2874A6;
+    border-right: 1px solid #2874A6;
+  }
+
+  .header-features > div > span {
+    font-size: 32px;
+  }
+
+  .header-features p {
+    font-size: 14px;
+  }
+
+  .hero-row {
+    display: table-row;
+  }
+
+  .hero-row.hero-bottom {
+    display: table-cell;
+    vertical-align: bottom;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .navbar-nav a {
+      font-size: 18px;
+      text-align: center;
+    }
+    .nav > li.active {
+      border-bottom: none;
+    }
+  }
+
+
+
+
+
+
+  .colorgraph {
+    height: 5px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  }
+</style>
+
+<script>
+
+    window.sr = ScrollReveal();
+    sr.reveal('.heading', {
+        duration: 1000,
+        origin: 'left',
+        distance: '500px'
+    });
+
+    sr.reveal('.subheading', {
+        duration: 1300,
+        origin: 'right'
+    });
+
+    sr.reveal('.btn-group', {
+        duration: 2000,
+        origin: 'bottom',
+        distance: '100px'
+    });
+
+    sr.reveal('.navbar', {
+        duration: 1000,
+        origin: 'top'
+    });
+
+    sr.reveal('.header-features', {
+        duration: 3000,
+        origin: 'bottom'
+    });
+
+</script>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon">
+  <link rel="icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon">
+  <link rel="icon" type="image/png" href="<%= asset_path 'favicon-32x32.png' %>" sizes="32x32" />
+  <link rel="icon" type="image/png" href="<%= asset_path 'favicon-16x16.png' %>" sizes="16x16" />
+  <title>
+    Les pages maghreb : trouvez plus que des coordonnées avec l'annuaire des professionnels
+  </title>
+  <%= stylesheet_link_tag 'front' %>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <%= javascript_include_tag 'front' %>
+  <%= javascript_include_tag 'ad_locations'%>
+  <%= javascript_include_tag 'swfobject'%>
+  <%= csrf_meta_tags %>
+  <!-- PushAlert -->
+  <script type="text/javascript">
+    (function(d, t) {
+      var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      g.src = "https://cdn.pushalert.co/integrate_d4f4370758f07dedd7a6bc3a8879aaaa.js";
+      s.parentNode.insertBefore(g, s);
+    }(document, "script"));
+  </script>
+  <!-- End PushAlert -->
+</head>
+
+
+<body data-spy="scroll" data-target=".searchform" data-offset="50">
+<div id="header-panel">
+  <div class="container">
+    <div id="mega-top" class="collapse <%= 'in' unless session['toggle']%>">
+      <%= insert_ad 'NEW_mega_banner' %>
+    </div>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#mega-top" onclick="tcook();"><i class="fa fa-angle-double-down"></i></button>
+  </div>
+</div>
+  <%= yield %>
+  <footer id="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h3 class="footer-title">Copyright 2006-2018</h3>
+            <div class="textwidget">
+              <p>Réalisation technique <a href="http://www.flambosoft.com" target="_blank">FlamboSoft</a><br>
+                Propriété de : Les Pages Maghreb<br>
+                Il est <span style="text-decoration: underline;">interdit</span> d’extraire ou de réutiliser tout ou partie du contenu et de la base de données des Pages Maghreb.</p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <h3 class="footer-title">Liens Utiles</h3>
+            <div class="textwidget">
+              <ul class="footer-links">
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li><a href="#">Plan du site</a></li>
+                <li><a href="#">Souscrire de la publicité</a></li>
+              </ul>
+              <ul class="footer-links">
+                <li><a href="#">Nous recrutons</a></li>
+                <li><a href="#">Manifestations et salons</a></li>
+                <li><a href="#">Mon compte</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4 footer-contact">
+            <h3 class="footer-title">Contactez Nous</h3>
+            <div class="textwidget">
+              <p>
+                <i class="fa fa-map-marker text-center" aria-hidden="true"></i> 46 LOT. PETITE PROVENCE SIDI YAHIA
+                Hydra, Alger (16), Algérie<br />
+                <i class="fa fa-phone text-center" aria-hidden="true"></i> (+213) 770 97 00 00<br />
+                <i class="fa fa-fax text-center" aria-hidden="true"></i> (+213) 021 43 53 04</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget gt3_widget widget_text">
+              <div class="textwidget">
+                © 2018 LESPAGESMAGHREB.COM. ALL RIGHTS RESERVED
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="social">
+              <div class="textwidget custom-html-widget"><a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> <a href="#"><i class="fa fa-youtube-play"></i></a></div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-right">
+            <div class="links">
+              <div class="textwidget custom-html-widget">
+                <p class=""><a href="#">TERMES ET CONDITIONS</a><span style="    padding: 0 8px;">|</span><a href="#">MENTIONS LÉGALES</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <%=javascript_include_tag 'main'%>
+  <!-- PASS THRU DATA OBJECT -->
+  <script type="text/javascript">
+    var lz_data = {overwrite:false,language:'fr'};
+  </script>
+  <!-- PASS THRU DATA OBJECT -->
+
+  <!-- livezilla.net PLACE SOMEWHERE IN BODY -->
+  <script type="text/javascript" id="cb341955b2f4927f406870fd99bf62d7" src="http://livezilla.lpm-dz.org/script.php?id=cb341955b2f4927f406870fd99bf62d7"></script>
+  <!-- livezilla.net PLACE SOMEWHERE IN BODY -->
+</body>
+</html>

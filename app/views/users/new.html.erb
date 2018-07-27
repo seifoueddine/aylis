@@ -1,0 +1,42 @@
+<% content_for(:page_header) do %>
+    <%= t "user.Create_new_user" %>
+<% end %>
+
+<% content_for :panel_heading do %><%= link_to (t "general.Back"), users_path, class: 'btn btn-warning'%><% end %>
+
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label (t "general.Name") %>
+      <%= f.text_field :last_name ,class: 'form-control', placeholder: 'Enter name...', required: true%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email , class: 'form-control', placeholder: 'Enter Email...', required: true %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label (t"general.Password") %>
+      <%= f.password_field :password , class: 'form-control', placeholder: 'Enter Password...', required: true %>
+    </div>
+
+
+
+
+    <div class="form-group actions">
+      <%= f.submit 'Submit', :class => 'btn btn-lg btn-success btn-block' %>
+    </div>
+<% end %>

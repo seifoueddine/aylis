@@ -1,0 +1,320 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+      long_ordinal: "%e %B %Y"
+      only_day: "%e"
+
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, jan., fév., mar., avr., mai, juin, juil., août, sept., oct., nov., déc.]
+    #order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%d %B %Y %H:%M"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M:%S %Z"
+      long_ordinal: "%A %d %B %Y %H:%M:%S %Z"
+      only_second: "%S"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "une demi-minute"
+      less_than_x_seconds:
+        zero:  "moins d'une seconde"
+        one:   "moins de 1 seconde"
+        other: "moins de {{count}} secondes"
+      x_seconds:
+        one:   "1 seconde"
+        other: "{{count}} secondes"
+      less_than_x_minutes:
+        zero:  "moins d'une minute"
+        one:   "moins de 1 minute"
+        other: "moins de {{count}} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "{{count}} minutes"
+      about_x_hours:
+        one:   "environ une heure"
+        other: "environ {{count}} heures"
+      x_days:
+        one:   "1 jour"
+        other: "{{count}} jours"
+      about_x_months:
+        one:   "environ un mois"
+        other: "environ {{count}} mois"
+      x_months:
+        one:   "1 mois"
+        other: "{{count}} mois"
+      about_x_years:
+        one:   "environ un an"
+        other: "environ {{count}} ans"
+      over_x_years:
+        one:   "plus d'un an"
+        other: "plus de {{count}} ans"
+    prompts:
+      year:   "Année"
+      month:  "Mois"
+      day:    "Jour"
+      hour:   "Heure"
+      minute: "Minute"
+      second: "Seconde"
+
+  number:
+    format:
+      precision: 3
+      separator: ','
+      delimiter: ' '
+    currency:
+      format:
+        unit: '€'
+        precision: 2
+        format: '%n %u'
+    human:
+      format:
+        precision: 2
+      storage_units: [ Octet, ko, Mo, Go, To ]
+
+  support:
+    array:
+      sentence_connector: 'et'
+      skip_last_comma: true
+      word_connector: ", "
+      two_words_connector: " et "
+      last_word_connector: " et "
+
+  ref_property:
+    category:
+      general: Général
+      law: Juridique
+      economy: Economique
+      parc: Parc
+      compte_sociaux: Compte sociaux
+      provider: Provider
+      assurance: Assurance
+      parc_informatique: Parc informatique
+      airline_campanies: Compagnies aériennes
+
+  sphinx:
+    firms:
+        cat_id: "catégorie"
+        wilaya_id: "wilaya"
+        ville_id: "Ville"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Impossible d'enregistrer {{model}}: 1 erreur"
+          other: "Impossible d'enregistrer {{model}}: {{count}} erreurs."
+        body: "Veuillez vérifier les champs suivants :"
+      messages:
+        inclusion: "n'est pas inclus(e) dans la liste"
+        exclusion: "n'est pas disponible"
+        invalid: "n'est pas valide"
+        confirmation: "ne concorde pas avec la confirmation"
+        accepted: "doit être accepté(e)"
+        empty: "doit être rempli(e)"
+        blank: "doit être rempli(e)"
+        too_long: "est trop long (pas plus de {{count}} caractères)"
+        too_short: "est trop court (au moins {{count}} caractères)"
+        wrong_length: "ne fait pas la bonne longueur (doit comporter {{count}} caractères)"
+        taken: "n'est pas disponible"
+        not_a_number: "n'est pas un nombre"
+        greater_than: "doit être supérieur à {{count}}"
+        greater_than_or_equal_to: "doit être supérieur ou égal à {{count}}"
+        equal_to: "doit être égal à {{count}}"
+        less_than: "doit être inférieur à {{count}}"
+        less_than_or_equal_to: "doit être inférieur ou égal à {{count}}"
+        odd: "doit être impair"
+        even: "doit être pair"
+      models:
+        firm:
+          attributes:
+            taggables_tags:
+              invalid: "un ou plusieurs tags sont associés plus d'une fois à cette entreprise"
+    models:
+      city: Ville
+      region: Wilaya
+      firm: Entreprise
+      user: Utilisateur
+      extranet_user: Utilisateur extranet
+      tag: Tag
+      role: Role
+      category: Catégorie
+      manifestation: Manifestation
+      lead: Lead
+      ad_location: Emplacement
+      campaign: Campagne
+      subscription: Abonnement
+      subscription_stat: "Statistiques d'abonnement"
+      service: Service
+      directory: Annuaire
+      publication: Parution
+      nae: NAE
+      nae_sec: NAE secondaire
+    attributes:
+      firm:
+        corporate_name: "Raison sociale"
+        usual_corporate_name: "Raison sociale usuelle"
+        contacts_contact_methods_value: "Contacts : "
+        contacts_main: "Contacts : "
+        contacts_last_name: "Contacts : "
+        contacts_title: "Contacts : "
+        addresses_city_id: "Adresses : ville"
+        addresses_main: "Adresses : "
+        addresses_free_city: "Adresses : ville"
+        addresses_country_id: "Adresses : pays"
+        addresses_free_region: "Adresses : région"
+        addresses_zipcode: "Adresses : ZIP Code"
+        addresses_street_1: "Adresses : addresse"
+        properties_value: "Propriétés : "
+        addresses_label : "Adresses : label "
+        taggables_tags: "Tags : "
+        publications_content_type: "Publications : Fichier"
+        category_memberships: "Général : Catégories"
+        category_memberships_category_id: "Général : Catégories"
+        gruik_code: "Code GruiK!"
+      user:
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        roles_users_cidr: "Rôles : CIDR"
+      extranet_user:
+        name: Nom complet
+        email: Email
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        new_email: Nouvel email
+        phone_number: "Numéro de téléphone (ex: 021304050, +33.140506070)"
+        fax_number: "Numéro de fax (ex: 021304050, +33.140506070)"
+      contact:
+        first_name: Prénom
+        last_name: Nom
+      role:
+        cidr_value: CIDR
+      tag:
+        name: Nom
+      manifestation:
+        name : Nom
+        organizer: Entreprise organisatrice
+        start_at: Début
+        end_at: Fin
+        inscription_from: Début des inscriptions
+        inscription_to: Fin des inscriptions
+        category_memberships: "Catégories : "
+        category_memberships_category_id: "Catégories : "
+        contacts_title: "Contacts : "
+        contacts_main: "Contacts : "
+        addresses_city_id: "Adresse : ville"
+        addresses_free_city: "Adresses : ville"
+        addresses_country_id: "Adresses : pays"
+        addresses_free_region: "Adresses : région"
+        addresses_zipcode: "Adresses : ZIP Code"
+        addresses_street_1: "Adresses : addresse"
+      lead:
+        corporate_name: Raison sociale
+        comments: Commentaires
+        firm : Entreprise liée
+        firm_id: Entreprise liée
+        contacts_contact_methods_value: ""
+        addresses_city_id: "Adresse : ville"
+        addresses_free_city: "Adresse : ville"
+        addresses_country_id: "Adresse : pays"
+        addresses_zipcode: "Adresse : ZIP Code"
+        addresses_street_1: "Adresse : addresse"
+      ad_location:
+        name: Nom
+        max_simultaneous_campaigns: Campagnes simultanées
+      campaign:
+        name: Nom
+        ad_location_id: Emplacement
+        advertizer_id: Propriétaire
+        announcer_id: Annonceur
+        start_at: Début
+        end_at: Fin
+        link_url: URL de redirection
+        width: Largeur
+        height: Hauteur
+        filename: Fichier
+        category_memberships: "Catégories : "
+      subscription:
+        name: Nom
+        start_at: Début
+        end_at: Fin
+        max_requests: Nombre de requêtes
+      subscription_stat:
+        kind: Type
+      service:
+        title: Titre
+        summary: Résumé
+        more_text: Lien
+        content: Contenu
+        keywords: Mots clé
+        blank_target: Nouvelle page
+      lpm_paper_subscription:
+        corporation_name: Raison sociale / Nom
+        email: Adresse email
+        phone: Téléphone
+
+  contact_methods:
+    phone: téléphone
+    mobile: mobile
+    email: email
+    fax: fax
+    url: site web
+    main_phone: téléphone principal
+    main_fax: fax principal
+    facebook: Facebook
+
+  subscription_stat:
+    kinds:
+      firm_search: Recherche d'entreprise
+      firm_show: Fiche entreprise
+      email: Envoi d'email
+
+  lead:
+    states:
+      new: Nouveau
+      accepted: Accepté
+      rejected: Refusé
+      paid: Payé
+
+  ad_location:
+    kinds:
+      AdLocation::Visual: Visuel
+      AdLocation::SponsoredLinks: Liens sponsorisés
+      AdLocation::FirmVisual: "Campagne d'entreprise"
+
+  campaign:
+    kinds:
+      Campaign::Visual: Visuelle
+      Campaign::SponsoredLink: Lien sponsorisé
+      Campaign::Customized: "Campagne d'entreprise"

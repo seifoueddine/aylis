@@ -1,0 +1,92 @@
+<table id="user" class="display table" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>
+      <div class="row">
+        <div class="col col-md-10"><%= t "general.Name"%></div>
+        <div class="col-6 col-md-2">
+          <div class="row">
+            <%if params["sorts"].present? && params["sorts"].split(';')[0] == 'name'%>
+                <%if params["sorts"].split(';')[1] == 'desc' %>
+                    <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','name;asc')" do %><span class="glyphicon glyphicon-sort-by-alphabet"></span><% end %></div>
+                <%else%>
+                    <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','name;desc')" do %><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span><% end %></div>
+                <%end%>
+            <%else%>
+                <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','name;asc')" do %><span class="glyphicon glyphicon-sort"></span><% end %></div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </th>
+    <th>
+      <div class="row">
+        <div class="col col-md-10">Email</div>
+        <div class="col-6 col-md-2">
+          <div class="row">
+            <%if params["sorts"].present? && params["sorts"].split(';')[0] == 'email'%>
+                <%if params["sorts"].split(';')[1] == 'desc' %>
+                    <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','email;asc')" do %><span class="glyphicon glyphicon-sort-by-alphabet"></span><% end %></div>
+                <%else%>
+                    <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','email;desc')" do %><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span><% end %></div>
+                <%end%>
+            <%else%>
+                <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','email;asc')" do %><span class="glyphicon glyphicon-sort"></span><% end %></div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </th>
+    <th>
+      <div class="row">
+        <div class="col col-md-10">Role</div>
+        <div class="col-6 col-md-2">
+          <div class="row">
+            <%if params["sorts"].present? && params["sorts"].split(';')[0] == 'role'%>
+                <%if params["sorts"].split(';')[1] == 'desc' %>
+                    <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','role;asc')" do %><span class="glyphicon glyphicon-sort-by-alphabet"></span><% end %></div>
+                <%else%>
+                    <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','role;desc')" do %><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span><% end %></div>
+                <%end%>
+            <%else%>
+                <div class="col" style="height: 10px"><%=link_to "#",id:"sorts" ,onclick:"SelectSearch('sorts','users','role;asc')" do %><span class="glyphicon glyphicon-sort"></span><% end %></div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </th>
+    <th>Notifications</th>
+    <th width="20%">Actions</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% paginate.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%#if user.token_mail%><!--Token |--> <%#end%><%if user.important_articles_mail%>Important Articles | <%end%><%if user.today_abstract_mail%>Abstract<%end%></td>
+        <td>
+          <%= link_to (t "general.show"), user , class: 'btn btn-success'%>
+          <%= link_to (t "general.edit"), edit_user_path(user) , class: 'btn btn-primary'%>
+          <%= link_to (t "general.destroy"), user, method: :delete, data: { confirm: 'Are you sure?' } ,class: 'btn btn-danger'  %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="row">
+  <div class="col-sm-3">
+    <div  id="dataTables-example_info" role="status" aria-live="polite">
+      <span>Affichage de <%=paginate.length%> sur <%= @total%> entrées</span>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+      <%= will_paginate paginate, renderer: BootstrapPagination::Rails , previous_label: "Précédent", next_label: "Suivant" %>
+
+    </div>
+  </div>
+</div>

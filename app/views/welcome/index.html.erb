@@ -1,0 +1,407 @@
+<%if current_user.activate%>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+    <h1>Bienvenue <%= current_user.first_name %> <%= current_user.last_name %></h1>
+    </div>
+
+    <div class="">
+      <div class="row top_tiles">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa  fa-bitcoin"></i></div>
+            <div class="count"><%=number_with_delimiter(current_user.points, delimiter: '  ')%></div>
+            <h3>E-Bank</h3>
+
+          </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-dollar"></i></div>
+            <div class="count"><%=number_with_delimiter(current_user.ivoucher, delimiter: '  ')%></div>
+            <h3>E-Voucher</h3>
+          </div>
+        </div>
+        <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-sign-in"></i></div>
+            <div class="count"><%=current_user.last_sign_in_at.strftime('%d/%m/%Y à %I:%M%p')%></div>
+            <h3>Dernière connexion</h3>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="row top_tiles">
+
+        <div class="animated flipInY col-lg-12 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+
+            <div class="wrapper">
+              <div id="date"></div>
+              <div id="time"></div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Weekly Summary
+                <small>Activity shares</small>
+              </h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+              <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+                <div class="col-md-6">
+                  <div class="row" style="text-align: center;">
+
+                    <div class="col-md-5">
+                      <div id="grap_bar" style="width:200%; height:200px;"></div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="row" style="text-align: center;">
+
+                    <div class="col-md-5">
+                      <div id="grap_donut" style="width:200%; height:200px;"></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Transaction Summary
+                <small>Weekly progress</small>
+              </h2>
+              <div class="filter">
+                <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                  <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="demo-container" style="height:280px">
+                  <div id="chart_plot_02" class="demo-placeholder"></div>
+                </div>
+                <div class="tiles">
+                  <div class="col-md-4 tile">
+                    <span>Total Sessions</span>
+                    <h2>231,809</h2>
+                    <span class="sparkline11 graph" style="height: 160px;">
+                                   <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                              </span>
+                  </div>
+                  <div class="col-md-4 tile">
+                    <span>Total Revenue</span>
+                    <h2>$231,809</h2>
+                    <span class="sparkline22 graph" style="height: 160px;">
+                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                              </span>
+                  </div>
+                  <div class="col-md-4 tile">
+                    <span>Total Sessions</span>
+                    <h2>231,809</h2>
+                    <span class="sparkline11 graph" style="height: 160px;">
+                                     <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                              </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <div>
+                  <div class="x_title">
+                    <h2>Top Profiles</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <ul class="list-unstyled top_profiles scroll-view">
+                    <li class="media event">
+                      <a class="pull-left border-aero profile_thumb">
+                        <i class="fa fa-user aero"></i>
+                      </a>
+                      <div class="media-body">
+                        <a class="title" href="#">Ms. Mary Jane</a>
+                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                        <p>
+                          <small>12 Sales Today</small>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="media event">
+                      <a class="pull-left border-green profile_thumb">
+                        <i class="fa fa-user green"></i>
+                      </a>
+                      <div class="media-body">
+                        <a class="title" href="#">Ms. Mary Jane</a>
+                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                        <p>
+                          <small>12 Sales Today</small>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="media event">
+                      <a class="pull-left border-blue profile_thumb">
+                        <i class="fa fa-user blue"></i>
+                      </a>
+                      <div class="media-body">
+                        <a class="title" href="#">Ms. Mary Jane</a>
+                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                        <p>
+                          <small>12 Sales Today</small>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="media event">
+                      <a class="pull-left border-aero profile_thumb">
+                        <i class="fa fa-user aero"></i>
+                      </a>
+                      <div class="media-body">
+                        <a class="title" href="#">Ms. Mary Jane</a>
+                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                        <p>
+                          <small>12 Sales Today</small>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="media event">
+                      <a class="pull-left border-green profile_thumb">
+                        <i class="fa fa-user green"></i>
+                      </a>
+                      <div class="media-body">
+                        <a class="title" href="#">Ms. Mary Jane</a>
+                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                        <p>
+                          <small>12 Sales Today</small>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+</div>
+<%else%>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+        <h1>Bienvenue <%= current_user.first_name %> <%= current_user.last_name %> </h1>
+        <h2>Votre compte n'est pas encore activé, ne hésitez de contacter votre supérieur</h2>
+      </div>
+
+      <div class="row top_tiles">
+
+        <div class="animated flipInY col-lg-12 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+
+            <div class="wrapper">
+              <div id="date"></div>
+              <div id="time"></div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+  <%end%>
+
+
+
+
+<script type="text/javascript">
+
+    ($('#grap_donut').length)
+    {
+
+        Morris.Donut({
+            element: 'grap_donut',
+            data: [
+                {label: 'Droite', value: <%= @r%>},
+                {label: 'Gauche', value: <%= @l%>},
+
+            ],
+            colors: ['#26B99A', '#a1a1a1'],
+            formatter: function (y) {
+                return y ;
+            },
+            resize: true
+        });
+
+    }
+
+
+
+
+</script >
+
+<script type="text/javascript">
+
+    ($('#grap_bar').length)
+    {
+
+        Morris.Bar({
+            element: 'grap_bar',
+            data: [
+                {device: 'Total', Nombre: <%= @w + @m%>},
+                {device: 'Femme', Nombre: <%= @w%>},
+                {device: 'Homme', Nombre: <%= @m%>},
+
+
+            ],
+            xkey: 'device',
+            ykeys: ['Nombre'],
+            labels: ['Nombre'],
+            barRatio: 0.4,
+            barColors: ['#26B99A', '#a1a1a1'],
+            xLabelAngle: 35,
+            hideHover: 'auto',
+            resize: true
+        });
+
+    }
+
+</script>
+
+
+
+<style>
+
+
+  #date {
+    color: #73879C;
+    text-align: center;
+    font-size: 2.5em;
+  }
+
+  #time {
+    color: #1abb9c;
+    text-align: center;
+    font-size: 5em;
+  }
+</style>
+<script>
+
+    (function () {
+        'use strict';
+
+        function getDate() {
+            var date = new Date();
+            var weekday = date.getDay();
+            var month = date.getMonth();
+            var day = date.getDate();
+            var year = date.getFullYear();
+            var hour = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            if (hour < 10) hour = "0" + hour;
+            if (minutes < 10) minutes = "0" + minutes;
+            if (seconds < 10) seconds = "0" + seconds;
+
+            var monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+            var weekdayNames = ["Dimanche" ,"Lundi" ,"Mardi" ,"Mercredi" ,"Jeudi" ,"Vendredi" ,"Samedi"];
+
+            var monthColors = ["#1E90FF", "#FF69B4", "#00FFFF", "#7CFC00", "#00CED1", "#FF1493", "#00008B", "#FF7F50", "#C71585", "#FF4500", "#FFD700", "#800000"]
+
+            var ampm = " PM ";
+
+            if (hour < 12) ampm = " AM ";
+
+            if (hour > 12) hour -= 12;
+
+            var showDate = weekdayNames[weekday] + " " + day + " " + monthNames[month]  + " " + year;
+
+            var showTime = hour + ":" + minutes + ":" + seconds + ampm;
+
+            var color = monthColors[month];
+
+            document.getElementById('date').innerHTML = showDate;
+
+            document.getElementById('time').innerHTML = showTime;
+
+            document.bgColor = color;
+
+
+            requestAnimationFrame(getDate);
+        }
+
+        getDate();
+
+    }());
+
+
+</script>
