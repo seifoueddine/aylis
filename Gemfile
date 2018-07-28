@@ -37,7 +37,7 @@ end
 
 group :development do
   #gem 'capistrano-rails'
-  gem 'mysql2', '>= 0.3.13', '< 0.5'
+  gem 'mysql2'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -49,7 +49,7 @@ group :development do
   gem 'capistrano3-puma',   require: false
 end
 group :production do
-  gem 'mysql2', '>= 0.3.13', '< 0.5'
+  gem 'mysql2'
   gem 'pg'
   gem 'rails_12factor'
 end
