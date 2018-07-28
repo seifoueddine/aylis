@@ -8,7 +8,7 @@ end
 gem 'rails', '5.1.3'
 
 gem 'puma', '~> 3.7'
-
+gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -37,7 +37,6 @@ end
 
 group :development do
   #gem 'capistrano-rails'
-  gem 'mysql2'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -51,5 +50,6 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
