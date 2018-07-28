@@ -49,6 +49,7 @@ group :development do
   gem 'capistrano3-puma',   require: false
 end
 group :production do
+  gem 'mysql2', '>= 0.3.13', '< 0.5'
   gem 'pg'
   gem 'rails_12factor'
 end
