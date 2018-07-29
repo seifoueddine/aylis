@@ -5,14 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.new(
-    :first_name => "Rahim",
-    :last_name => "Ismail",
-    :email                 => "admin@admin.com",
+
+user1 = User.new(
+    :first_name => "moh",
+    :last_name => "Dou",
+    :email                 => "moh@admin.com",
     :password              => "123456",
     :password_confirmation => "123456",
-    :role => "admin",
-    :activate => true
+    :role => "user",
+    :activate => true,
+    points: 0,
+    ivoucher: 0,
+    randomID: 123456
 )
-user.skip_confirmation!
-user.save!
+user1.skip_confirmation!
+user1.save!

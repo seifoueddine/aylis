@@ -21,7 +21,7 @@
 
   <div class="form-group">
     <%= f.label "Listes" %>
-    <%= f.select :beneath, @userlist.map {|d|[ d.last_name,d.randomID ]}, {prompt: "Choisissez ta7t chkoun "}, {class: 'form-control', required: true} %>
+    <%= f.select :beneath, @userlist.map {|d|[ d.last_name,d.randomID ]}, {prompt: "Au-dessous  "}, {class: 'form-control', required: true} %>
   </div>
 
 
