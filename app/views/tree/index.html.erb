@@ -41,7 +41,7 @@
                 <ul>
                   <li>
                     <% if @usertoshowl %>
-                      <a href="<%= "users/#{@usertoshowl.id}" %>"><img src="<%= @usertoshowl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                      <a href="<%= "/users/#{@usertoshowl.id}" %>"><img src="<%= @usertoshowl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
                     <% else %>
                       <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                     <% end %>
