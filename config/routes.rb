@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :sales
   devise_for :users , controllers: {
       registrations: 'users/registrations'
   }
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   get '/users/:id' , to: 'users#show'
   get '/tree/:id' , to: 'tree#index'
   get '/welcome/:id' , to: 'welcome#index'
+  post  'sales/add_produit', to: 'sales#add_produit'
 
     get "/index.html" => "static#index"
     get "/index2.html" => "static#index2"

@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @sale.date %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @sale.total_price %>
+</p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @sale.contact_name %>
+</p>
+
+<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<%= link_to 'Back', sales_path %>
+
+
+
+<a class="btn btn-success" data-toggle="modal" href="#betaModal">Add </a>
+<div id="betaModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Add Product</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <%= form_tag(sales_add_produit_path, {:method => :post}) do %>
+            <%= hidden_field_tag :id, @sale.id %>
+
+            <div class="col-md-4" >
+              <strong>Products:</strong>
+              <%#= select_tag :product_id, Product.all.map{|id| [id.name, id.id]},{prompt: "select product",class:"form-control", required: true} %>
+              <%=select_tag(:product_id, options_from_collection_for_select(Product.all, :id, :name), include_blank: "Select Product")%>
+            </div>
+            <div class="col-md-4">
+              <strong>Quantity:</strong>
+              <%= text_field_tag :quantity,nil,{class:"form-control" ,placeholder:"Quantité",:required => true}%>
+            </div>
+
+            <div class="col-md-4" >
+              <strong>Price:</strong>
+              <%#= text_field_tag :price,nil,{class:"form-control" ,placeholder: "prix",id: 'priceId',:required => true }   %>
+            </div>
+
+
+
+            <div class="col-md-4">
+              <br>
+              <%= submit_tag 'Create', class: 'btn btn-success',id: 'hello' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

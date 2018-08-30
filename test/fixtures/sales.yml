@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-08-29
+  total_price: 1.5
+  contact_name: MyString
+
+two:
+  date: 2018-08-29
+  total_price: 1.5
+  contact_name: MyString
