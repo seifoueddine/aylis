@@ -29,6 +29,7 @@ gem 'netaddr'
 gem 'thinking-sphinx','~> 3.4.0'
 gem 'kaminari'
 gem 'bootstrap-select-rails', '~> 1.12', '>= 1.12.4'
+#gem 'rails-i18n', '~> 5.1'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'

@@ -68,11 +68,15 @@
     <br>
     <br>
     <div class="text-center hero-row">
-      <h1 class="heading"><span>LIGHT</span>HOUSE</h1>
+      <h1 class="heading"> <img src=<%= asset_path 'LightHouse.png'%> alt="Paris" class="center"> </h1>
       <h2 class="subheading">Met s Que Tu Veux Ici</h2>
+      <div class="row">
+        <a class="btn2" href=<%= new_user_registration_path%>>Sign up</a>
+        <a class="btn2" href="#" type="button" data-toggle="modal" data-target="#myModal">Log in</a>
+      </div>
       <div class="btn-group">
         <%= link_to "Sign up", new_user_registration_path ,class:"btn btn-lg btnx-blue"%>
-        <button class="btn btn-lg btnx-white" type="button" data-toggle="modal" data-target="#myModal" >Log in</button>
+        <button class="btn btn-lg btnx-white" type="button" data-toggle="modal" data-target="#myModal1" >Log in</button>
       </div>
     </div>
     <div class="row header-features text-center hero-row hero-bottom">
@@ -103,7 +107,39 @@
 
 
 
+<div class="container">
 
+</div>
+<style>
+  .btn2 {
+    display: inline-block;
+    background: transparent;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    color: black;
+    border-radius: 0;
+    padding: 10px 80px 10px;
+    transition: all 0.7s ease-out;
+    background-image: linear-gradient(to right, #2b5876 0%, #ce1010 51%, #2b5876 100%);
+
+    background-position: 1% 50%;
+    background-size: 300% 300%;
+    text-decoration: none;
+    margin: 0.625rem;
+    border: none;
+
+  }
+
+  .btn2:hover {
+    color: #fff;
+    border: 1px solid rgba(223, 190, 106, 0);
+    color: #fff;
+    background-position: right center;
+  }
+</style>
 
 
 

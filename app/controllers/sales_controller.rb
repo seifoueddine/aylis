@@ -1,5 +1,5 @@
 class SalesController < ApplicationController
-  before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_sale, only: [:show, :edit, :update, :destroy,:add_produit]
 
   # GET /sales
   # GET /sales.json
@@ -10,22 +10,35 @@ class SalesController < ApplicationController
   # GET /sales/1
   # GET /sales/1.json
   def show
+    @ven_pros = @sale.sale_products.order(:quantity)
+    @products = Product.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /sales/new
   def new
     @sale = Sale.new
+    get_product
+
   end
 
   # GET /sales/1/edit
   def edit
+    get_product
   end
 
   # POST /sales
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
+    @sale.total_price = 0;
 
+    params[:products][:id].each do |product|
+      if !product.empty?
+       # @sale.sale_products(:product_id => product)
+       @product = Product.find(product)
+       @sale.sale_products.build(product_id: product, price: @product.price, quantity: 1)
+      end
+    end
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
@@ -42,6 +55,12 @@ class SalesController < ApplicationController
   def update
     respond_to do |format|
       if @sale.update(sale_params)
+        @sale.products = []
+        params[:products][:id].each do |product|
+          if !product.empty?
+            @sale.products << Product.find(product)
+          end
+        end
         format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
         format.json { render :show, status: :ok, location: @sale }
       else
@@ -70,6 +89,20 @@ class SalesController < ApplicationController
    # @sal = @pro.product
     @pro.quantity = params[:quantity]
     @pro.price = @product.price
+    x = @pro.price
+    v = @pro.quantity
+    a = @sale.total_price
+    if a == nil || a == 0
+      a=0
+      f = a + x * v
+    else
+      f = a + x * v
+    end
+    @sale.total_price = f
+
+    @pro.save!
+
+
     if @pro.save
       flash[:notice] = 'Vendre enregistré avec succes.'
       redirect_to :action => :show, :id => params[:id]
@@ -80,7 +113,14 @@ class SalesController < ApplicationController
     end
 
 
+  def get_product
+    @all_products = Product.all
+    @sale_product = @sale.sale_products.build
+  end
 
+  def full_name2
+    "#{name} #{price}"
+  end
 
 
 
