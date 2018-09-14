@@ -12,18 +12,34 @@ class SalesController < ApplicationController
   def show
     @ven_pros = @sale.sale_products.order(:quantity)
     @products = Product.paginate(page: params[:page], per_page: 5)
-  end
+    @sale_item = @sale.sale_products.new
+
+
+    @sale = Sale.find(params[:id])
+
+    @sar = SaleProduct.where sale_id: @sale.id
+
+    respond_to do |format|
+      format.html
+      format.pdf {render pdf: "sale",
+                         template: "sales/sale.pdf.erb",
+                         locals: {:sale => @sale}}
+
+      end
+
+
+    end
 
   # GET /sales/new
   def new
     @sale = Sale.new
-    get_product
+
 
   end
 
   # GET /sales/1/edit
   def edit
-    get_product
+
   end
 
   # POST /sales
@@ -31,14 +47,9 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     @sale.total_price = 0;
+    @sale.date = Date.today
 
-    params[:products][:id].each do |product|
-      if !product.empty?
-       # @sale.sale_products(:product_id => product)
-       @product = Product.find(product)
-       @sale.sale_products.build(product_id: product, price: @product.price, quantity: 1)
-      end
-    end
+
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
@@ -55,12 +66,7 @@ class SalesController < ApplicationController
   def update
     respond_to do |format|
       if @sale.update(sale_params)
-        @sale.products = []
-        params[:products][:id].each do |product|
-          if !product.empty?
-            @sale.products << Product.find(product)
-          end
-        end
+
         format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
         format.json { render :show, status: :ok, location: @sale }
       else
@@ -81,6 +87,7 @@ class SalesController < ApplicationController
   end
 
 
+=begin
   def add_produit
     @pro = SaleProduct.new
     @pro.sale = @sale
@@ -111,17 +118,7 @@ class SalesController < ApplicationController
       redirect_to :action => :show, :id => params[:id]
     end
     end
-
-
-  def get_product
-    @all_products = Product.all
-    @sale_product = @sale.sale_products.build
-  end
-
-  def full_name2
-    "#{name} #{price}"
-  end
-
+=end
 
 
 

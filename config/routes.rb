@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'welcome/welcome'
   resources :products
   resources :users
+  resources :sale_products
 
   get '/users/reset_password/:id' , to: 'users#reset_password'
   get '/users/active/:id' , to: 'users#active'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   get '/tree/:id' , to: 'tree#index'
   get '/welcome/:id' , to: 'welcome#index'
   post  'sales/add_produit', to: 'sales#add_produit'
-
+  get   'sale_products/:id/destroy/:product_id' , to: 'sale_products#destroy'
     get "/index.html" => "static#index"
     get "/index2.html" => "static#index2"
     get "/index3.html" => "static#index3"

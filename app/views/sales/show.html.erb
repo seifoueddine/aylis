@@ -17,6 +17,7 @@
 
 <%= link_to 'Edit', edit_sale_path(@sale) %> |
 <%= link_to 'Back', sales_path %>
+<%= link_to 'Pdf' ,"",class:"btn btn-md btn-success ",onclick:"passvar()"%> |
 
 
 
@@ -49,7 +50,14 @@
                       </div>
                       <h3><a ><%=product.name if product%></a></h3>
                       <div class="pi-price"><%=product.price if product%> DZD</div>
-                      <a href="javascript:;" class="btn add2cart">Add to cart</a>
+                      <%= form_for @sale_item do |f| %>
+                        <%= f.hidden_field :sale_id, value: @sale.id %>
+
+                        <%=  f.hidden_field :product_id, value: product.id if product%>
+
+                        <%= f.number_field :quantity %>
+                        <%= f.submit "Add to cart", class: "btn add2cart" %>
+                      <% end %>
                       <div class="sticker sticker-new"></div>
                     </div>
                   </div>
@@ -57,29 +65,6 @@
               </div>
             <%end%>
 
-
-
-            <div class="col-md-4" >
-              <strong>Products:</strong>
-              <%#=select_tag(:product_id, options_from_collection_for_select(Product.all, :id, :name), include_blank: "Select Product")%>
-              <%=select_tag(:product_id, options_from_collection_for_select(Product.all, :id, :name),:multiple =>true,:size => 8,:class=> "text")%>
-            </div>
-            <div class="col-md-4">
-              <strong>Quantity:</strong>
-              <%= text_field_tag :quantity,nil,{class:"form-control" ,placeholder:"Quantité",:required => true}%>
-            </div>
-
-            <div class="col-md-4" >
-              <strong>Price:</strong>
-              <%= text_field_tag :price,nil,{class:"form-control" ,placeholder: "prix",id: 'priceId',:required => true }   %>
-            </div>
-
-
-
-            <div class="col-md-4">
-              <br>
-              <%= submit_tag 'Create', class: 'btn btn-success',id: 'hello' %>
-            </div>
           <% end %>
         </div>
       </div>
@@ -104,7 +89,8 @@
       <td><%= s.quantity %></td>
       <td><%= s.price %> DZD</td>
       <td><%= s.price * s.quantity%> DZD</td>
-
+      <td>
+      <td><%= link_to 'Supprimer', "/sale_products/#{params[:id]}/destroy/#{s.id};", data: {confirm: 'Are you sure?'}, class: "btn btn-md btn-danger" %></td></td>
         </tr>
 
   <% } %>
@@ -232,3 +218,8 @@
 </style>
 
 
+<script>
+    function passvar() {
+        window.location = '/sales/<%=@sale.id%>.pdf';
+    }
+</script>
