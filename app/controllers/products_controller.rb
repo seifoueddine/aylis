@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.paginate(page: params[:page], per_page: 5)
+    @products2 = Product.paginate(page: params[:page], per_page: 5)
+    @categories = %w(Tout Sport Arme Voiture)
   end
 
   # GET /products/1
@@ -61,6 +63,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def from_category
+    if params[:name] == 'Tout'
+      @selected = Product.all
+    else
+      @selected = Product.where("category LIKE ?", "#{params[:name]}%")
+    end
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -69,6 +83,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name,:img,:price)
+      params.require(:product).permit(:name,:img,:price,:category)
     end
 end

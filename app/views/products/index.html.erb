@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Nos Produits</h1>
-
-<table>
+<!--<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -11,16 +9,16 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+    <%# @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= product.name %></td>
+        <td><%#= link_to 'Show', product %></td>
+        <td><%#= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
-</table>
+</table>-->
 
 <br>
 
@@ -30,30 +28,6 @@
   <i class="fa fa-shopping-cart"></i> Faire une commande
 </a>
 
-
-
-
-  <% @products.in_groups_of(3) do |group| %>
-
-  <div class="row">
-    <% group.each do |product| %>
-    <div class="col-md-4">
-      <div class="product-item">
-        <div class="pi-img-wrapper">
-          <img src="<%=product.img.url if product%>" class="img-responsive" >
-          <div>
-            <a <%= link_to 'Show', product , class:"btn"%></a>
-          </div>
-        </div>
-        <h3><a ><%=product.name if product%></a></h3>
-        <div class="pi-price"><%=product.price if product%> DZD</div>
-
-        <div class="sticker sticker-new"></div>
-      </div>
-    </div>
-    <%end%>
-  </div>
-    <%end%>
  <!--    <div class="col-md-4">
       <div class="product-item">
         <div class="pi-img-wrapper">
@@ -82,6 +56,23 @@
         <a href="javascript:;" class="btn add2cart">Add to cart</a>
       </div>
     </div>-->
+
+<div class="container">
+  <div class="row">
+    <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h1 class="gallery-title">Nos produits</h1>
+    </div>
+
+    <div align="center">
+      <%= render 'sidebar_menu' %>
+    </div>
+    <br/>
+
+    <%= render partial: 'item_grid', locals: {products: @products2} %>
+
+  </div>
+</div>
+
 
 
 
@@ -188,8 +179,62 @@
     padding-top: 1px;
   }
 
-</style>
 
+
+  .gallery-title
+  {
+    font-size: 36px;
+    color: #73879c;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
+  }
+  .gallery-title:after {
+    content: "";
+    position: absolute;
+    width: 7.5%;
+    left: 46.5%;
+    height: 45px;
+    border-bottom: 1px solid #5e5e5e;
+  }
+  .filter-button
+  {
+    font-size: 18px;
+    border: 1px solid #73879c;
+    border-radius: 5px;
+    text-align: center;
+    color: #73879c;
+    margin-bottom: 30px;
+
+  }
+  .filter-button:hover
+  {
+    font-size: 18px;
+    border: 1px solid #73879c;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #73879c;
+
+  }
+  .btn-default:active .filter-button:active
+  {
+    background-color: #73879c;
+    color: white;
+  }
+
+  .port-image
+  {
+    width: 100%;
+  }
+
+  .gallery_product
+  {
+    margin-bottom: 30px;
+  }
+
+
+</style>
 
 
 

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/welcome/:id' , to: 'welcome#index'
   post  'sales/add_produit', to: 'sales#add_produit'
   get   'sale_products/:id/destroy/:product_id' , to: 'sale_products#destroy'
+  get '/fetch_products' => 'products#from_category', as: 'fetch_products'
     get "/index.html" => "static#index"
     get "/index2.html" => "static#index2"
     get "/index3.html" => "static#index3"
