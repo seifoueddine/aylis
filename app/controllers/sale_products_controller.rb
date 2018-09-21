@@ -26,17 +26,55 @@ class SaleProductsController < ApplicationController
   def destroy
     @pro = SaleProduct.find(params[:product_id])
     p= @pro.price
+    q = @pro.quantity
     id = @pro.sale_id
     @pro.destroy
 
     @sale = Sale.find id
-    @sale.total_price -= p
+    @sale.total_price -= p * q
     @sale.save!
     respond_to do |format|
       format.html { redirect_to sale_url(params[:id]), notice: 'Products was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+
+  def decrement
+    @pro = SaleProduct.find(params[:product_id])
+    @pro.decrement!(:quantity)
+    p= @pro.price
+    id = @pro.sale_id
+
+    @sale = Sale.find id
+    @sale.total_price -= p
+    @sale.save!
+
+    @pro.save!
+    respond_to do |format|
+      format.html { redirect_to sale_url(params[:id]), notice: 'Quantity was successfully decrement.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def increment
+    @pro = SaleProduct.find(params[:product_id])
+    @pro.increment!(:quantity)
+    p= @pro.price
+    id = @pro.sale_id
+
+
+    @sale = Sale.find id
+    @sale.total_price += p
+    @sale.save!
+
+    @pro.save!
+    respond_to do |format|
+      format.html { redirect_to sale_url(params[:id]), notice: 'Quantity was successfully increment.' }
+      format.json { head :no_content }
+    end
+  end
+
 
 
 

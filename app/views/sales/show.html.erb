@@ -126,6 +126,7 @@
                       <th>Quantité</th>
                       <th>prix</th>
                       <th>partial price</th>
+                      <th>Modifier quantité</th>
                       <th>Action</th>
                     </tr>
                     <tbody>
@@ -135,6 +136,8 @@
                         <td><%= s.quantity %></td>
                         <td><%= s.price %> DZD</td>
                         <td><%= s.price * s.quantity %> DZD</td>
+                        <td><%= link_to ' - ', "/sale_products/#{params[:id]}/decrement/#{s.id};", class: "btn btn-md btn-danger" %>
+                          <%= link_to ' + ', "/sale_products/#{params[:id]}/increment/#{s.id};", class: "btn btn-md btn-primary" %></td>
                         <td><%= link_to 'Supprimer', "/sale_products/#{params[:id]}/destroy/#{s.id};", data: {confirm: 'Are you sure?'}, class: "btn btn-md btn-danger" %>
                         </td>
                       </tr>
