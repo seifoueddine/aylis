@@ -1,5 +1,5 @@
 class SalesController < ApplicationController
-  before_action :set_sale, only: [:show, :edit, :update, :destroy,:add_produit]
+  before_action :set_sale, only: [:show, :edit, :update, :destroy]
 
   # GET /sales
   # GET /sales.json
@@ -15,7 +15,7 @@ class SalesController < ApplicationController
     @sale_item = @sale.sale_products.new
 
 
-    @sale = Sale.find(params[:id])
+
 
     @sar = SaleProduct.where sale_id: @sale.id
 
@@ -24,8 +24,8 @@ class SalesController < ApplicationController
       format.pdf {render pdf: "sale",
                          template: "sales/sale.pdf.erb",
                          locals: {:sale => @sale}}
-
       end
+
 
 
     end

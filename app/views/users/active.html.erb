@@ -20,13 +20,13 @@
 
 
   <div class="form-group">
-    <%= f.label "Listes" %>
+    <%= f.label :beneath,"Listes" %>
     <%= f.select :beneath, @userlist.map {|d|[ d.last_name,d.randomID ]}, {prompt: "Au-dessous  "}, {class: 'form-control', required: true} %>
   </div>
 
 
   <div class="form-group">
-    <%= f.label "Position" %>
+    <%= f.label :side, "Position" %>
     <%= f.select :side, User::SIDE.select {|d| [ d[0],d[1] ]} , { prompt: "Choisissez le placement " }, {class: 'form-control', required: true} %>
   </div>
 

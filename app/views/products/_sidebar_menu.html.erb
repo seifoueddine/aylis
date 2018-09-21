@@ -1,4 +1,4 @@
-<% @categories.each do | cat | %>
+<% Product::CATEGORIES2.each do | cat | %>
   <%= link_to cat, fetch_products_path(:name => cat), :remote => true ,class: "btn btn-default filter-button" %>
 
 <% end %>

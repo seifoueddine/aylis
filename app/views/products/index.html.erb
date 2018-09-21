@@ -1,32 +1,46 @@
-<p id="notice"><%= notice %></p>
 
-<!--<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Liste des produits </h2> <h2> | </h2> <%= link_to 'Nouveau produit', new_product_path ,class:"btn btn-primary"%>
 
-  <tbody>
-    <%# @products.each do |product| %>
-      <tr>
-        <td><%#= product.name %></td>
-        <td><%#= link_to 'Show', product %></td>
-        <td><%#= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%# end %>
-  </tbody>
-</table>-->
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Raison</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.category%></td>
+            <td><%= link_to 'Show', product, class:"btn btn-primary" %>
+            <%= link_to 'Edit', edit_product_path(product) ,class:"btn btn-default"%>
+            <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'},class:"btn btn-danger" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
 
-<br>
 
-<%= link_to 'New Product', new_product_path %>
+    </div>
+  </div>
+</div>
 
-<a href="<%= new_sale_path%>" class="btn btn-app">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+<a href="<%= new_sale_path%>" class="btn btn-app pull-right">
   <i class="fa fa-shopping-cart"></i> Faire une commande
 </a>
+</div>
+</div>
 
  <!--    <div class="col-md-4">
       <div class="product-item">

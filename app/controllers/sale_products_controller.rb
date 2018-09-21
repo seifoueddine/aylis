@@ -25,8 +25,13 @@ class SaleProductsController < ApplicationController
 
   def destroy
     @pro = SaleProduct.find(params[:product_id])
-
+    p= @pro.price
+    id = @pro.sale_id
     @pro.destroy
+
+    @sale = Sale.find id
+    @sale.total_price -= p
+    @sale.save!
     respond_to do |format|
       format.html { redirect_to sale_url(params[:id]), notice: 'Products was successfully destroyed.' }
       format.json { head :no_content }

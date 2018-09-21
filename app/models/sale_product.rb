@@ -4,10 +4,6 @@ class SaleProduct < ApplicationRecord
 
 
 
-  def name_price
-    "#{name} #{price}"
-  end
-
 
 
 end

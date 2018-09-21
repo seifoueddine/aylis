@@ -1,27 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @sale.date %>
-</p>
-
-<p>
-  <strong>Total price:</strong>
-  <%= @sale.total_price %>
-</p>
-
-<p>
-  <strong>Contact name:</strong>
-  <%= @sale.contact_name %>
-</p>
-
-<%= link_to 'Edit', edit_sale_path(@sale) %> |
-<%= link_to 'Back', sales_path %>
-<%= link_to 'Pdf' ,"",class:"btn btn-md btn-success ",onclick:"passvar()"%> |
-
-
-
-<a class="btn btn-success" data-toggle="modal" href="#betaModal">Add </a>
+<%= link_to 'Modifier la commande', edit_sale_path(@sale) ,class:"btn btn-primary"%> |
+<%= link_to 'Back', sales_path ,class:"btn btn-warning"%> |
+<a class="btn btn-success" data-toggle="modal" href="#betaModal">Ajouter des produits </a>
 <div id="betaModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -73,29 +54,151 @@
 </div>
 
 
-<table class="table table-sm">
-  <thead>
-  <tr>
-    <th>Produit</th>
-    <th>Quantity</th>
-    <th>price</th>
-    <th>partial price</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @ven_pros.each { |s| %>
-    <tr>
-      <td><%= s.product.name %></td>
-      <td><%= s.quantity %></td>
-      <td><%= s.price %> DZD</td>
-      <td><%= s.price * s.quantity%> DZD</td>
-      <td>
-      <td><%= link_to 'Supprimer', "/sale_products/#{params[:id]}/destroy/#{s.id};", data: {confirm: 'Are you sure?'}, class: "btn btn-md btn-danger" %></td></td>
-        </tr>
+<div role="main">
+  <div class="">
 
-  <% } %>
-  </tbody>
-</table>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Commande pour le client "<%=@sale.contact_name%>"</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+
+            <section class="content invoice">
+              <!-- title row -->
+              <div class="row">
+                <div class="col-xs-12 invoice-header">
+                  <h1>
+                    <i class="fa fa-globe"></i> Commande.
+                    <small class="pull-right">Date: <%= @sale.date %></small>
+                  </h1>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- info row -->
+              <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                  De la part de :
+                  <address>
+                    <strong>Light-House .</strong>
+                    <br>795 Setif, rue 600
+                    <br>Algerie, CA 94107
+                    <br>Telephone: XXXXXXX
+                    <br>Email: nimportkoi@admin.com
+                  </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                  Pour (Mr/Mm/Melle)
+                  <address>
+                    <strong><%= @sale.contact_name%></strong>
+                    <br>Information client
+                    <br>Information client
+                    <br>Information client
+                    <br>Information client
+                  </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                  <b>Commande Num <%= @sale.id%></b>
+                  <br>
+                  <br>
+                  <b>Faite par:</b> ?????
+                  <br>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+
+              <!-- Table row -->
+              <div class="row">
+                <div class="col-xs-12 table">
+                  <table class="table table-striped">
+                    <tr>
+                      <th>Produit</th>
+                      <th>Quantité</th>
+                      <th>prix</th>
+                      <th>partial price</th>
+                      <th>Action</th>
+                    </tr>
+                    <tbody>
+                    <% @ven_pros.each {|s| %>
+                      <tr>
+                        <td><%= s.product.name %></td>
+                        <td><%= s.quantity %></td>
+                        <td><%= s.price %> DZD</td>
+                        <td><%= s.price * s.quantity %> DZD</td>
+                        <td><%= link_to 'Supprimer', "/sale_products/#{params[:id]}/destroy/#{s.id};", data: {confirm: 'Are you sure?'}, class: "btn btn-md btn-danger" %>
+                        </td>
+                      </tr>
+
+                    <% } %>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+
+              <div class="row">
+                <!-- accepted payments column -->
+                <div class="col-xs-6">
+                  <p class="lead">Description:</p>
+
+                  <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                    Description Description Description Description Description Description Description v v Description.
+                  </p>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-6">
+
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                      <tr>
+                        <th style="width:50%">Total:</th>
+                        <td><%=@sale.total_price%> DZD</td>
+                      </tr>
+                      <tr>
+                        <th>Tax (14%)</th>
+                        <td><%=(@sale.total_price.to_i * 14)/ 100%> DZD</td>
+                      </tr>
+                      <tr>
+                        <th>Total:</th>
+                        <td><%= ((@sale.total_price.to_i * 14)/ 100) + @sale.total_price%> DZD</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+
+              <!-- this row will not appear when printing -->
+              <div class="row no-print">
+                <div class="col-xs-12">
+                  <%= link_to 'Génerer un PDF' ,"",class:"btn btn-primary pull-right",onclick:"passvar()"%>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
@@ -216,8 +319,6 @@
     border-color: #e84d1c;
   }
 </style>
-
-
 <script>
     function passvar() {
         window.location = '/sales/<%=@sale.id%>.pdf';
