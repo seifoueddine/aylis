@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'send/index'
+
   resources :sales
   devise_for :users , controllers: {
       registrations: 'users/registrations'
@@ -17,6 +19,11 @@ Rails.application.routes.draw do
 
   get '/users/reset_password/:id' , to: 'users#reset_password'
   get '/users/active/:id' , to: 'users#active'
+  get '/send/index' , to: 'send#index'
+
+  get '/send/:id/sell' , to: 'send#sell'
+
+
   get '/users/:id' , to: 'users#show'
   get '/tree/:id' , to: 'tree#index'
   get '/welcome/:id' , to: 'welcome#index'

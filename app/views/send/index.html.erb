@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
-      <h2>Mon Pannier </h2>
+      <h2>Mes ventes </h2>
 
 
       <div class="clearfix"></div>
@@ -12,24 +10,22 @@
       <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
         <thead>
         <tr>
+          <th>Contact name</th>
           <th>Date</th>
           <th>Total price</th>
-          <th>Contact name</th>
-          <th>Action</th>
+
+
         </tr>
         </thead>
 
         <tbody>
         <% @sales.each do |sale| %>
           <tr>
+            <td><%= sale.contact_name %></td>
             <td><%= sale.date %></td>
             <td><%= sale.total_price %></td>
-            <td><%= sale.contact_name %></td>
-            <td><%= link_to 'Show', sale ,class:"btn btn-primary" %>
-            <%= link_to 'Edit', edit_sale_path(sale) ,class:"btn btn-default" %>
-            <%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %>
-              <%= link_to ' Envoyer ', "/send/#{sale.id}/sell", class: "btn btn-md btn-success "%>
-            </td>
+
+
           </tr>
         <% end %>
         </tbody>

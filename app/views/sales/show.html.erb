@@ -189,6 +189,8 @@
               <div class="row no-print">
                 <div class="col-xs-12">
                   <%= link_to 'Génerer un PDF' ,"",class:"btn btn-primary pull-right",onclick:"passvar()"%>
+                  <%= link_to ' Envoyer ', "/send/#{params[:id]}/sell", class: "btn btn-md btn-success pull-right"%>
+
                 </div>
               </div>
             </section>
