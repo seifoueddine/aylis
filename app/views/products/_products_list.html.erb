@@ -1,10 +1,10 @@
 
 
-<% products.in_groups_of(3) do |group| %>
+<% products.in_groups_of(4) do |group| %>
 
   <div class="row">
     <% group.each do |product| %>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%if product%>
         <div class="product-item">
           <div class="pi-img-wrapper">
@@ -24,3 +24,4 @@
   </div>
 <%end%>
 
+<%= will_paginate products %>

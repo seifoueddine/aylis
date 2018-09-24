@@ -65,9 +65,9 @@ class ProductsController < ApplicationController
 
   def from_category
     if params[:name] == 'Tout'
-      @selected = Product.all
+      @selected = Product.paginate(page: params[:page], per_page: 5)
     else
-      @selected = Product.where("category LIKE ?", "#{params[:name]}%")
+      @selected = Product.paginate(page: params[:page], per_page: 5).where("category LIKE ?", "#{params[:name]}%")
     end
     respond_to do |format|
       format.js
