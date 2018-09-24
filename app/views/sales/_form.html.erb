@@ -1,30 +1,33 @@
 
-<%= form_with(model: sale, local: true) do |form| %>
-  <% if sale.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
 
-      <ul>
-      <% sale.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <div class="x_content">
+
+
+      <%= form_with(model: sale, local: true) do |form| %>
+        <% if sale.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+            <ul>
+              <% sale.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+        <div class="field">
+          <%= form.label :contact_name ,'Nom du client'%>
+          <%= form.text_field :contact_name, id: :sale_contact_name , class: 'form-control'%>
+        </div>
+
+        <br>
+
+        <div class="actions">
+          <%= form.submit 'Créer la commande', class: 'form-control btn btn-success'%>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-
-  <div class="field">
-    <%= form.label :contact_name %>
-    <%= form.text_field :contact_name, id: :sale_contact_name %>
-  </div>
-
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-
 
 
