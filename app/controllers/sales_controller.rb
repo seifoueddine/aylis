@@ -4,7 +4,7 @@ class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
   def index
-    @sales = Sale.where(env: nil)
+    @sales = Sale.where(env: nil, user_id: current_user.id)
   end
 
   # GET /sales/1
@@ -48,7 +48,7 @@ class SalesController < ApplicationController
     @sale = Sale.new(sale_params)
     @sale.total_price = 0;
     @sale.date = Date.today
-
+    @sale.user_id = current_user.id
 
     respond_to do |format|
       if @sale.save

@@ -4,7 +4,7 @@ class SendController < ApplicationController
 
 
   def index
-    @sales = Sale.where(env: true)
+    @sales = Sale.where(env: true ,user_id: current_user.id)
   end
 
   def sell
