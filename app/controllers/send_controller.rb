@@ -9,9 +9,18 @@ class SendController < ApplicationController
 
   def sell
     @s = @sal
-  @s.env = true
+    @s.env = true
+    p = @s.total_price
+    @current = User.find current_user.id
+    pts = @current.points
+    if p.to_i > pts.to_i
+      redirect_to sales_path, :flash => { :error => "Vous avez pas assez de points pour faire cette commande." }
+    else
+    @current.points = pts - (p / 100)
+    @current.save!
     @s.save!
-    redirect_to '/send/index', notice: 'Commande envoyé.'
+    redirect_to '/send/index', notice: "Commande envoyé."
+    end
 
 
   end
