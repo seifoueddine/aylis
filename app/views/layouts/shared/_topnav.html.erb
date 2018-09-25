@@ -9,20 +9,22 @@
       <span class=" fa fa-angle-down"></span>
     </a>
     <ul class="dropdown-menu dropdown-usermenu pull-right">
-      <li><%= link_to "Profile", user_path(current_user.id) %> </li>
+      <li>
+        <a href="<%= user_path(current_user.id) %>">
+          <% if current_user.activate %>
+            <span class="badge bg-green pull-right">Activé</span>
+          <% else %>
+            <span class="badge bg-red pull-right">Non Activé</span>
+          <% end %>
+          <span>Profile</span>
+        </a>
+      </li>
       <li><%= link_to destroy_user_session_path, :method => 'delete' do%><i class="fa fa-sign-out pull-right"></i>Déconnexion<%end%></li>
+
     </ul>
   </li>
-<li>
-  <a>
-    <%if current_user.activate%>
-    <span class="label label-success ">Activé</span>
-      <%else%>
-    <span class="label label-danger ">Non Activé</span>
-      <%end%>
-  </a>
 
-</li>
+  <li><a href="/sales/12565/index2"><i class="fa fa-send"></i> Les commandes envoyés <span class="label label-danger pull-right"><%= Sale.where(env: true, read: nil).length %></span></a></li>
 <!--  <li role="presentation" class="dropdown">
     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
       <i class="fa fa-envelope-o"></i>

@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   get '/users/active/:id' , to: 'users#active'
   get '/send/index' , to: 'send#index'
 
+  get '/sales/12565/index2' , to: 'sales#index2'
+
   get '/send/:id/sell' , to: 'send#sell'
+
+  get '/sales/:id/read' , to: 'sales#read'
 
 
   get '/users/:id' , to: 'users#show'

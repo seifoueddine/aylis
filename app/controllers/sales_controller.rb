@@ -1,10 +1,15 @@
 class SalesController < ApplicationController
-  before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_sale, only: [:show, :edit, :update, :destroy,:read]
 
   # GET /sales
   # GET /sales.json
   def index
     @sales = Sale.where(env: nil, user_id: current_user.id)
+  end
+
+  def index2
+    @salesread = Sale.where(env: true)
+
   end
 
   # GET /sales/1
@@ -86,39 +91,15 @@ class SalesController < ApplicationController
     end
   end
 
-
-=begin
-  def add_produit
-    @pro = SaleProduct.new
-    @pro.sale = @sale
-    @product = Product.find(params[:product_id])
-    @pro.product_id = @product.id
-   # @sal = @pro.product
-    @pro.quantity = params[:quantity]
-    @pro.price = @product.price
-    x = @pro.price
-    v = @pro.quantity
-    a = @sale.total_price
-    if a == nil || a == 0
-      a=0
-      f = a + x * v
-    else
-      f = a + x * v
-    end
-    @sale.total_price = f
-
-    @pro.save!
+  def read
+    @s = @sale
+    @s.read = true
+    @s.save
+    redirect_to "/sales/12565/index2", notice: "Commande Bien vu."
 
 
-    if @pro.save
-      flash[:notice] = 'Vendre enregistré avec succes.'
-      redirect_to :action => :show, :id => params[:id]
-    else
-      flash[:error] = "Une erreur s'est produite."
-      redirect_to :action => :show, :id => params[:id]
-    end
-    end
-=end
+
+  end
 
 
 
