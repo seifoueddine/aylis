@@ -10,10 +10,10 @@
           <div class="pi-img-wrapper">
             <img src="<%=product.img.url if product%>" class="img-responsive" >
             <div>
-              <a <%= link_to 'Show', product , class:"btn"%></a>
+              <a <%= link_to "Voir détails", product , class:"btn"%></a>
             </div>
           </div>
-          <h3><a ><%=product.name if product%></a></h3>
+          <h3><i><b><%=product.name if product%></b></i></h3>
           <div class="pi-price"><%=product.price if product%> DZD</div>
 
           <div class="sticker sticker-new"></div>

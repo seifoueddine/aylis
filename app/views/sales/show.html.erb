@@ -4,11 +4,11 @@
 <%= link_to 'Back', sales_path ,class:"btn btn-warning"%> |
 <a class="btn btn-success" data-toggle="modal" href="#betaModal">Ajouter des produits </a>
 <div id="betaModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button class="close" data-dismiss="modal">×</button>
-        <h3>Add Product</h3>
+        <h3 class="text-center">Produits & Services</h3>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -17,30 +17,33 @@
 
 
 
-            <% @products.in_groups_of(3) do |group| %>
+            <% @products.in_groups_of(4) do |group| %>
 
               <div class="row">
                 <% group.each do |product| %>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
+                    <%if product%>
                     <div class="product-item">
                       <div class="pi-img-wrapper">
                         <img src="<%=product.img.url if product%>" class="img-responsive" >
                         <div>
-                          <a <%= link_to 'Show', product , class:"btn"%></a>
+                          <a <%= link_to "Voir détails", product , class:"btn"%></a>
                         </div>
                       </div>
-                      <h3><a ><%=product.name if product%></a></h3>
+                      <h3><i ><b><%=product.name if product%></b></i></h3>
                       <div class="pi-price"><%=product.price if product%> DZD</div>
                       <%= form_for @sale_item do |f| %>
                         <%= f.hidden_field :sale_id, value: @sale.id %>
 
                         <%=  f.hidden_field :product_id, value: product.id if product%>
 
-                        <%= f.number_field :quantity %>
-                        <%= f.submit "Add to cart", class: "btn add2cart" %>
+                        <%= f.number_field :quantity, class:"form-control" %>
+                        <br>
+                        <%= f.submit "+ Ajouter", class: "btn add2cart" %>
                       <% end %>
                       <div class="sticker sticker-new"></div>
                     </div>
+                    <%end%>
                   </div>
                 <%end%>
               </div>
@@ -311,7 +314,7 @@
   }
 
   .product-item .add2cart {
-    float: right;
+    float: left;
     color: #a8aeb3;
     border: 1px #ededed solid;
     padding: 3px 6px;

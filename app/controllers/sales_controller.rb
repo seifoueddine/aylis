@@ -11,7 +11,7 @@ class SalesController < ApplicationController
   # GET /sales/1.json
   def show
     @ven_pros = @sale.sale_products.order(:quantity)
-    @products = Product.paginate(page: params[:page], per_page: 5)
+    @products = Product.all
     @sale_item = @sale.sale_products.new
 
 
