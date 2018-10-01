@@ -14,12 +14,7 @@
           </ul>
         </div>
     <% end %>
-  <%if current_user.role == "admin"%>
-  <div class="form-group">
-    <%= f.label :number_activation %>
-    <%= f.text_field :number_activation, class: 'form-control', placeholder: 'Enter le nombre d\'acivation...', required: true %>
-  </div>
-<%end%>
+
       <div class="form-group">
         <%= f.label :last_name %>
         <%= f.text_field :last_name ,class: 'form-control', placeholder: 'Enter ...', required: true%>

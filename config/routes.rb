@@ -66,6 +66,8 @@ Rails.application.routes.draw do
     get   '/',                                    to: "static#index"
     get "/firms/mother_firms",                        to:'firms#mother_firms'
     get "/firms/_categories",                        to:'firms#_categories'
+    get "/banks/25/send_activation",              to:'banks#send_activation' , as: "send_activation"
+    post  'banks/activations', to: 'banks#activations'
 
 
 end

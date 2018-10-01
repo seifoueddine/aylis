@@ -1,0 +1,42 @@
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Faire un transfaire </h2>
+
+
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+
+      <%= form_tag(banks_activations_path, {:method => :post}) do %>
+
+
+      <div class="field">
+        <%= label_tag :activation, 'Nombre dactivation' %>
+        <%= text_field_tag :activation, nil, {class: "form-control", placeholder: "Nombre dactivation", :required => true} %>
+      </div>
+
+      <br>
+
+
+      <div class="field">
+        <%= label_tag :receiver_id, 'ID du recepteur' %>
+        <%= text_field_tag :receiver_id, nil, {class: "form-control", placeholder: "ID du recepteur", :required => true} %>
+      </div>
+
+
+
+      <br>
+      <div class="actions">
+        <%= submit_tag 'Envoyer', class: ' form-control btn btn-success' %>
+      </div>
+
+   <%end%>
+
+
+    </div>
+<%#= link_to 'Back', sales_path , class: 'btn btn-danger'%>
+  </div>
+</div>
+
