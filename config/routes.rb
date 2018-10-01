@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'send/index'
 
   resources :sales
+  resources :banks
   devise_for :users , controllers: {
       registrations: 'users/registrations'
   }
@@ -65,5 +66,6 @@ Rails.application.routes.draw do
     get   '/',                                    to: "static#index"
     get "/firms/mother_firms",                        to:'firms#mother_firms'
     get "/firms/_categories",                        to:'firms#_categories'
+
 
 end

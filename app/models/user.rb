@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :useradds
   has_many :users , through: :useradds
   has_many :sales
+  has_many :banks
   #before_save :random_id
 
 

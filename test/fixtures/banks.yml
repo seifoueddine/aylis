@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-09-30 22:21:39
+  points: 1
+  user_id: 1
+
+two:
+  date: 2018-09-30 22:21:39
+  points: 1
+  user_id: 1
