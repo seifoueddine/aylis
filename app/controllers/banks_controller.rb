@@ -1,11 +1,11 @@
 class BanksController < ApplicationController
   before_action :set_bank, only: [:show, :edit]
-
+  before_action :authenticate_user!
   # GET /banks
   # GET /banks.json
   def index
-    @banks = Bank.where(user_id: current_user.id, activation: nil)
-    @banks2 = Bank.where(user_id: current_user.id , points: nil)
+    @banks = Bank.where(user_id: current_user.id, activation: nil).order(date: :desc)
+    @banks2 = Bank.where(user_id: current_user.id , points: nil).order(date: :desc)
   end
 
   # GET /banks/1
@@ -26,11 +26,12 @@ class BanksController < ApplicationController
     @bank.user_id = current_user.id
     @bank.date = Date.today
     @user =User.find(current_user.id)
+    e= bank_params[:points]
     @user.points -= bank_params[:points].to_i
     @user.save
     respond_to do |format|
       if @bank.save
-        format.html { redirect_to banks_path, notice: 'points bien envoyé.' }
+        format.html { redirect_to banks_path, notice: 'Points bien envoyé.' }
 
       else
         format.html { render :new }
@@ -44,14 +45,14 @@ class BanksController < ApplicationController
   end
 
   def activations
-    @bank = Bank.new(bank_params)
+    @bank = Bank.new(bank_param)
     @bank.user_id = current_user.id
     @bank.date = Date.today
-    @re_user = User.find_by_randomID bank_params[:receiver_id]
-    @re_user.number_activation += bank_params[:activation].to_i
+    @re_user = User.find_by_randomID bank_param[:receiver_id]
+    @re_user.number_activation += bank_param[:activation].to_i
     @re_user.save!
     @tr_user = User.find_by_id current_user.id
-    @tr_user.number_activation -= bank_params[:activation].to_i
+    @tr_user.number_activation -= bank_param[:activation].to_i
     @tr_user.save!
     respond_to do |format|
       if @bank.save
@@ -73,6 +74,13 @@ class BanksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bank_params
-      params.permit(:date, :points, :user_id,:receiver_id,:activation)
+      params.require(:bank).permit(:date, :points, :user_id,:receiver_id,:activation)
     end
+
+  def bank_param
+    params.permit(:date, :points, :user_id,:receiver_id,:activation)
+  end
+
+
+
 end
