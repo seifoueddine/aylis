@@ -1,8 +1,8 @@
 
 # Change these
-server 'globlh.com', roles: [:web, :app, :db], primary: true
+server '91.205.175.3', roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'aylis@globlh:/home/aylis/aylis'
+set :repo_url,        'aylis@91.205.175.3:/home/aylis/aylis'
 set :application,     'aylis'
 set :user,            'aylis'
 set :puma_threads,    [4, 16]
