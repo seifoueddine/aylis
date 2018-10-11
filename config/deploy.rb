@@ -26,7 +26,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 
 set :rvm_type, :system                     # Defaults to: :auto
-set :rvm_ruby_version, 'ruby-2.4.1@stora'      # Defaults to: 'default'
+set :rvm_ruby_version, 'ruby-2.4.1@aylis'      # Defaults to: 'default'
 
 ## Defaults:
 # set :scm,           :git
