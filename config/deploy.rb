@@ -1,10 +1,10 @@
 
 # Change these
-server 'selma.lpm-dz.org', roles: [:web, :app, :db], primary: true
+server 'globlh.com', roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'unairo@selma.lpm-dz.org:/home/unairo/stora'
-set :application,     'stora'
-set :user,            'unairo'
+set :repo_url,        'aylis@globlh:/home/aylis/aylis'
+set :application,     'aylis'
+set :user,            'aylis'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
