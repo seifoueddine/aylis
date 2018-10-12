@@ -2,7 +2,7 @@
 # Change these
 server '91.205.175.3', roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'aylis@91.205.175.3:/home/aylis/aylis'
+set :repo_url,        'git@github.com:seifoueddine/aylis.git'
 set :application,     'aylis'
 set :user,            'aylis'
 set :puma_threads,    [4, 16]
