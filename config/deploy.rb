@@ -24,7 +24,8 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
-set :linked_dirs, fetch(:linked_dirs, []).push('public/system') #for the images paperclip
+
+set :linked_dirs, fetch(:linked_dirs) + %w{public/system}  #for the images paperclip
 #set :rvm_type, :system                     # Defaults to: :auto
 #set :rvm_ruby_version, 'ruby-2.4.1@aylis'      # Defaults to: 'default'
 
