@@ -25,7 +25,6 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 
-set :linked_dirs, %w{bin log tmp/backup tmp/pids tmp/cache tmp/sockets vendor/bundle} #for the images paperclip
 #set :rvm_type, :system                     # Defaults to: :auto
 #set :rvm_ruby_version, 'ruby-2.4.1@aylis'      # Defaults to: 'default'
 
@@ -80,6 +79,22 @@ namespace :deploy do
   end
 
 
+  set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
+
+  namespace :paperclip do
+    desc "build missing paperclip styles"
+    task :build_missing_styles do
+      on roles(:app) do
+        within release_path do
+          with rails_env: fetch(:rails_env) do
+            execute :rake, "paperclip:refresh:missing_styles"
+          end
+        end
+      end
+    end
+  end
+
+  after("deploy:compile_assets", "paperclip:build_missing_styles")
 
 =begin
   before 'deploy:update_code', 'thinking_sphinx:stop'
