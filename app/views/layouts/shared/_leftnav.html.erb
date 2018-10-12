@@ -28,7 +28,11 @@
       <li><a><i class="fa fa-home"></i> Organisation <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><%= link_to 'Dashboard', "/welcome/#{current_user.id}" %></a></li>
-          <li><%= link_to 'Mon equipe', users_path%></a></li>
+          <%if current_user.role == "admin"%>
+            <li><%= link_to 'Liste des utilisateurs', users_path%></a></li>
+            <%else%>
+            <li><%= link_to 'Mon equipe', users_path%></a></li>
+            <%end%>
           <li><%= link_to 'Mon arbre', "/tree/#{current_user.id}" %></a></li>
         </ul>
       </li>
@@ -38,7 +42,7 @@
       </li>
         <%end%>
 
-
+      <%if current_user.activate%>
       <li><a><i class="fa fa-desktop"></i> Store <span class="fa fa-chevron-down"></span></a>
        <ul class="nav child_menu">
           <li><%= link_to 'Produits et Services', products_path%></a></li>
@@ -47,8 +51,20 @@
 
         </ul>
       </li>
-      <li><a href="<%= banks_path %>"><i class="fa fa-bank" ></i> Bank </a>
 
+      <% else %>
+        <li><a><i class="fa fa-desktop"></i> Store <span class="label label-danger ">Non Activé</span></a>
+
+        </li>
+      <% end %>
+
+      <%if current_user.activate%>
+      <li><a href="<%= banks_path %>"><i class="fa fa-bank" ></i> Bank </a>
+      <% else %>
+        <li><a><i class="fa fa-bank" ></i> Store <span class="label label-danger ">Non Activé</span></a>
+
+        </li>
+      <% end %>
       </li>
       <li><a><i class="fa fa-gift"></i> Outils Promotionnel <span class="label label-info pull-right ">Bientôt</span></a>
 

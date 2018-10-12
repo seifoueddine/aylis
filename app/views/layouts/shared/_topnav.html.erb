@@ -23,8 +23,9 @@
 
     </ul>
   </li>
-
+  <%if current_user.role == "admin"%>
   <li><a href="/sales/12565/index2"><i class="fa fa-send"></i> Les commandes reçues <span class="label label-danger pull-right"><%= Sale.where(env: true, read: nil).length %></span></a></li>
+    <%end%>
 <!--  <li role="presentation" class="dropdown">
     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
       <i class="fa fa-envelope-o"></i>
