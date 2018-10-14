@@ -10,7 +10,7 @@ class Product < ApplicationRecord
 
 
 
-  CATEGORIES  = %w( Sport Arme Voiture)
-  CATEGORIES2  = %w(Tout Sport Arme Voiture)
+  CATEGORIES  = %w(Vetement Automobile)
+  CATEGORIES2  = %w(Tout Vetement Automobile)
 
 end
