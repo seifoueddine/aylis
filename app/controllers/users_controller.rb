@@ -332,10 +332,27 @@ end
 
   def activations
 
+    @userside = User.find_by_randomID user_params2[:beneath]
+
+
+    if ((@userside.left == true) && (user_params2[:side] == 'Gauche'))
+      redirect_to "/users/active/#{params[:id]}", notice: 'La position Gauche est prise déja.'
+
+    elsif ((@userside.right == true) && (user_params2[:side] == 'Droite'))
+      redirect_to "/users/active/#{params[:id]}", notice: 'La position Droite est prise déja.'
+
+    else
       @useractive = Useradd.find_by_beenadded params[:id]
       @useractive.side = user_params2[:side]
       @useractive.beneath = user_params2[:beneath]
       @useractive.save!
+      if user_params2[:side] == 'Droite'
+        @userside.right = true
+        @userside.save!
+      else
+        @userside.right = true
+        @userside.save!
+      end
       @user = User.find_by_id params[:id]
       @user.points += 50
       @user.activate = 1
@@ -348,15 +365,8 @@ end
         Useradd.add_point(current_user)
       end
         Useradd.add_point2(current_user)
-
       redirect_to users_path, notice: 'Activation bien faite.'
-
-
-
-
-
-
-
+     end
   end
 
   def create

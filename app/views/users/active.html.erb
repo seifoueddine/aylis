@@ -1,5 +1,16 @@
 <%#= link_to "Back", users_path, class: 'btn btn-warning'%>
 
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <br>
+  <% if notice %>
+    <div class="alert alert-info alert-dismissible fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <%= notice %>
+    </div>
+  <% end %>
+</div>
+
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
@@ -20,13 +31,13 @@
 
   <div class="form-group">
     <%= label_tag :beneath,"Listes" %>
-    <%= select_tag :beneath, options_for_select(@userlist.map {|d|[ d.last_name,d.randomID ]}) , {prompt: "Au-dessous  " , class: 'form-control', required: true} %>
+    <%= select_tag :beneath, options_for_select(@userlist.map {|d|[ d.last_name,d.randomID ] if (d.right.nil? || d.left.nil?)}.compact) , {prompt: "Au-dessous  " , class: 'form-control', required: true} %>
   </div>
 
 
   <div class="form-group">
     <%= label_tag :side, "Position" %>
-    <%= select_tag :side, options_for_select( User::SIDE.select {|d| [ d[0],d[1] ]}) , { prompt: "Choisissez le placement " , class: 'form-control', required: true} %>
+    <%= select_tag :side, options_for_select(User::SIDE.select {|d| [ d[0],d[1] ]}) , { prompt: "Choisissez le placement " , class: 'form-control', required: true} %>
   </div>
 
 
