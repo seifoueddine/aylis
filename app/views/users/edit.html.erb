@@ -1,6 +1,15 @@
-<%= link_to 'Back', users_path , class: 'btn btn-danger'%>
+<%#= link_to 'Back', users_path , class: 'btn btn-danger'%>
 
-<h1> Modifier " <%= @user.first_name %> <%= @user.last_name %> "</h1>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Modifier " <%= @user.first_name %> <%= @user.last_name %> "</h2>
+
+
+      <div class="clearfix"></div>
+    </div>
+
 
 <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
@@ -47,6 +56,8 @@
 <br>
 
     <div class="form-group actions">
-      <%= f.submit 'Submit', :class => 'btn btn-lg btn-success btn-block' %>
+      <%= f.submit 'Modifier', :class => 'btn btn-lg btn-success btn-block' %>
     </div>
 <% end %>
+  </div>
+</div>

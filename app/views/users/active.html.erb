@@ -1,5 +1,15 @@
-<%= link_to "Back", users_path, class: 'btn btn-warning'%>
-<h1>Activé le compte du <%=@user.last_name%></h1>
+<%#= link_to "Back", users_path, class: 'btn btn-warning'%>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Activé le compte du <%=@user.last_name%> <%=@user.first_name%> </h2>
+
+
+      <div class="clearfix"></div>
+    </div>
+
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -36,3 +46,6 @@
     <%= f.submit 'Submit', :class => 'btn btn-lg btn-success btn-block' %>
   </div>
 <% end %>
+
+  </div>
+</div>
