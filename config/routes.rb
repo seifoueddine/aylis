@@ -68,6 +68,7 @@ Rails.application.routes.draw do
     get "/firms/_categories",                        to:'firms#_categories'
     get "/banks/25/send_activation",              to:'banks#send_activation' , as: "send_activation"
     post  'banks/activations', to: 'banks#activations'
+    post  'users/activations' , to: 'users#activations'
 
 
 end

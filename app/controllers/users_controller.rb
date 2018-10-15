@@ -330,6 +330,35 @@ end
 
   end
 
+  def activations
+
+      @useractive = Useradd.find_by_beenadded params[:id]
+      @useractive.side = user_params2[:side]
+      @useractive.beneath = user_params2[:beneath]
+      @useractive.save!
+      @user = User.find_by_id params[:id]
+      @user.points += 50
+      @user.activate = 1
+      @user.save!
+      @own = current_user
+      @own.number_activation -= 1
+      @own.points += 200
+      @own.save!
+      if current_user.level1.nil?
+        Useradd.add_point(current_user)
+      end
+        Useradd.add_point2(current_user)
+
+      redirect_to users_path, notice: 'Activation bien faite.'
+
+
+
+
+
+
+
+  end
+
   def create
     @user = User.new(user_params)
     respond_to do |format|
@@ -346,23 +375,7 @@ end
   def update
     respond_to do |format|
       if @user.update(user_params)
-        unless (@user.id == current_user.id)
-        @useractive = Useradd.find_by_beenadded @user.id
-        @useractive.side = @user.side
-        @useractive.beneath = @user.beneath
-        @useractive.save!
-        @user.points += 50
-        @user.activate = 1
-        @user.save!
-        @own = current_user
-        @own.number_activation -= 1
-        @own.points += 200
-        @own.save!
-        if current_user.level1.nil?
-        Useradd.add_point(current_user)
-        end
-        Useradd.add_point2(current_user)
-        end
+
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -398,6 +411,9 @@ end
     params.require(:user).permit(:first_name,:last_name, :email, :password,:password_confirmation,:addpartner,:addBY,:image,:beneath,:phone,:activate,:side,:beneath,:number_activation,:sexe,:date)
   end
 
+  def user_params2
+    params.permit(:beneath,:side)
+  end
 
 
 end
