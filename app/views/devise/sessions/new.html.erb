@@ -9,10 +9,19 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="row" style="margin-top:20px">
 
-              <form role="form">
+
                 <fieldset>
-                  <h2>Please Sign In</h2>
-                  <hr class="colorgraph">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                        <img src="<%= asset_path ('LightHouse.png') %>" class="center-block d-block" style="
+                        width: 300px;">
+                      </div>
+
+                    </div>
+                  </div>
+                  <br>
+<!--                  <hr class="colorgraph">-->
                   <div class="form-group">
                     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class: "form-control input-lg" %>
                   </div>
@@ -28,17 +37,20 @@
         					  <% end -%>
 
         				</span>
-                  <hr class="colorgraph">
+<!--                  <hr class="colorgraph">-->
                   <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-primary btn-block" %>
+                      <%= link_to  new_user_registration_path, class: "btn btn-lg btn-primary btn-block" do  %>
+                        <i class="glyphicon glyphicon-pencil"></i> S'inscrire
+                      <%end%>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                      <%= f.submit "Log in", class: "btn btn-lg btn-success btn-block" %>
+                      <%= f.submit "S'identifier", class: "btn btn-lg btn-success btn-block" %>
+
                     </div>
                   </div>
                 </fieldset>
-              </form>
+
 
 
           </div>
@@ -101,10 +113,6 @@
 </div>
 
 
-
-<div class="container">
-
-</div>
 <style>
   .btn2 {
     display: inline-block;
@@ -131,15 +139,9 @@
   .btn2:hover {
     color: #fff;
     border: 1px solid rgba(223, 190, 106, 0);
-    color: #fff;
     background-position: right center;
   }
 </style>
-
-
-
-
-
 
 <style>
 
@@ -302,11 +304,6 @@
     }
   }
 
-
-
-
-
-
   .colorgraph {
     height: 5px;
     border-top: 0;
@@ -318,35 +315,3 @@
     background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   }
 </style>
-
-<script>
-
-    window.sr = ScrollReveal();
-    sr.reveal('.heading', {
-        duration: 1000,
-        origin: 'left',
-        distance: '500px'
-    });
-
-    sr.reveal('.subheading', {
-        duration: 1300,
-        origin: 'right'
-    });
-
-    sr.reveal('.btn-group', {
-        duration: 2000,
-        origin: 'bottom',
-        distance: '100px'
-    });
-
-    sr.reveal('.navbar', {
-        duration: 1000,
-        origin: 'top'
-    });
-
-    sr.reveal('.header-features', {
-        duration: 3000,
-        origin: 'bottom'
-    });
-
-</script>
