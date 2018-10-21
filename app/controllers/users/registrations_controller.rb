@@ -10,7 +10,7 @@ after_action :partner_id , only: [:create]
        values = parameter.values
        random_id = values[7]
        id= @user.id
-       @user.randomID = rand(1256487...52547895234)
+       @user.randomID = "LH#{rand(0...100000)}"
        @user.points = 0
        @user.ivoucher = 0
        @useraa = User.find_by_randomID random_id
