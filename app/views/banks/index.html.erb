@@ -1,19 +1,3 @@
-<div class="col-md-12 col-sm-12 col-xs-12">
-  <br>
-  <% if flash[:error] %>
-    <div class="alert alert-danger alert-dismissible fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Attention !</strong> <%= flash[:error] %>
-    </div>
-  <% end %>
-  <% if notice %>
-    <div class="alert alert-info alert-dismissible fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <%= notice %>
-    </div>
-  <% end %>
-</div>
-
 <div class="col-md-6 col-sm-6 col-xs-12">
   <%= link_to 'Transfere de fond', new_bank_path , class: 'form-control btn btn-success'%>
 </div>
@@ -94,4 +78,47 @@
 
 <script>
     $('#datatable-responsive2').DataTable();
+</script>
+<script>
+
+        function init_PNotify() {
+            console.log('init_PNotify');
+
+            if( "<%= notice%>" == "") {
+                new PNotify({
+
+                    title: 'Bienvenue à la banque',
+                    text: 'Vous trouverez ici vos points transferés ansi vos activations transferées',
+                    type: 'info',
+                    styling: 'bootstrap3'
+                });
+
+            }
+
+            else if  ( "<%= notice%>" == "Partenaire non trouver ."){
+
+
+                new PNotify({
+
+                    title: 'Attention!',
+                    text: '<%= notice%> ',
+                    type: 'Warning',
+                    styling: 'bootstrap3'
+                });
+
+            }
+            else {
+
+                new PNotify({
+
+                    title: 'Bravo !',
+                    text: '<%= notice%> ',
+                    type: 'success',
+                    styling: 'bootstrap3'
+                });
+
+            }
+
+    }
+
 </script>

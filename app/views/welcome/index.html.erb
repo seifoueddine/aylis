@@ -3,7 +3,7 @@
   <div class="row">
 
     <div class="col-md-12">
-    <h1>Bienvenue <%= current_user.first_name %> <%= current_user.last_name %></h1>
+    <h1>Mon dashboard</h1>
     </div>
 
     <div class="">
@@ -319,6 +319,39 @@
 
     }
 
+</script>
+
+<script>
+    function init_PNotify() {
+
+
+        console.log('init_PNotify');
+
+
+        new PNotify({
+            title: "Bonjour <%= current_user.first_name %> <%= current_user.last_name %>",
+            type: "info",
+            text: "Bienvenue à la platforme LightHouse. Si vous aurez le mondre soucie, ne hésitez pas à nous contacter.",
+            nonblock: {
+                nonblock: true
+            },
+            addclass: 'dark',
+            styling: 'bootstrap3',
+            hide: true,
+            before_close: function (PNotify) {
+                PNotify.update({
+                    title: PNotify.options.title + " - Enjoy your Stay",
+                    before_close: null
+                });
+
+                PNotify.queueRemove();
+
+                return false;
+            }
+        });
+
+
+    }
 </script>
 
 

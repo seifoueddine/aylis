@@ -31,7 +31,7 @@ class BanksController < ApplicationController
     @user.save
     respond_to do |format|
       if @bank.save
-        format.html { redirect_to banks_path, notice: 'Points bien envoyé.' }
+        format.html { redirect_to banks_path, notice: 'Vos points ont bien envoyés.' }
 
       else
         format.html { render :new }
@@ -49,6 +49,7 @@ class BanksController < ApplicationController
     @bank.user_id = current_user.id
     @bank.date = Date.today
     @re_user = User.find_by_randomID bank_param[:receiver_id]
+    if @re_user
     @re_user.number_activation += bank_param[:activation].to_i
     @re_user.save!
     @tr_user = User.find_by_id current_user.id
@@ -61,7 +62,11 @@ class BanksController < ApplicationController
         format.html { render :new }
         format.json { render json: @bank.errors, status: :unprocessable_entity }
       end
-      end
+    end
+    else
+      redirect_to banks_path,  notice: "Partenaire non trouver ."
+    end
+
   end
 
 
