@@ -25,9 +25,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <%= form_tag(sales_add_produit_path, {:method => :post}) do %>
-            <%= hidden_field_tag :id, @sale.id %>
-
+          <%= form_tag(saleproducts_create_path, {method: :post}) do %>
 
 
             <% @products.in_groups_of(4) do |group| %>

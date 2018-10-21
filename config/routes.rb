@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/users/:id' , to: 'users#show'
   get '/tree/:id' , to: 'tree#index'
   get '/welcome/:id' , to: 'welcome#index'
-  post  'sales/add_produit', to: 'sales#add_produit'
+  post  'saleproducts/create', to: 'saleproducts#create'
   get   'sale_products/:id/destroy/:product_id' , to: 'sale_products#destroy'
   get   'sale_products/:id/decrement/:product_id' , to: 'sale_products#decrement'
   get   'sale_products/:id/increment/:product_id' , to: 'sale_products#increment'
