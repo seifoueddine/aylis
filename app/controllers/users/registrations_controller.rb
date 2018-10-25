@@ -3,7 +3,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-after_action :partner_id , only: [:create]
+after_action :partner_id , only: :create
+before_action :check_for_token, only: :create
 
   def partner_id
        parameter = devise_parameter_sanitizer.sanitize(:sign_up)
@@ -76,4 +77,13 @@ after_action :partner_id , only: [:create]
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  #
+private
+
+def check_for_token
+  parameter = devise_parameter_sanitizer.sanitize(:sign_up)
+  values = parameter.values
+  random_id = values[7]
+  redirect_to root_path , alert: 'Vous avez mit un ID non existant.' unless User.exists?(randomID: random_id)
+end
 end

@@ -55,11 +55,7 @@
       </div>
     </div>
 
-  <%= javascript_include_tag 'gentelella-custom'%>
-    <!-- FastClick -->
-    <%= javascript_include_tag 'fastclick.js' %>
-    <!-- NProgress -->
-    <%= javascript_include_tag 'nprogress.js' %>
+    <%= javascript_include_tag 'gentelella-custom'%>
 
     <!-- iCheck -->
     <%= javascript_include_tag 'icheck' %>
@@ -71,12 +67,37 @@
     </body>
 
   <%else%>
+  <script>
+
+      function init_PNotify() {
+          console.log('init_PNotify');
+
+          <% flash.each do |key, value| %>
+
+          new PNotify({
+              title: '  <%=value%>' ,
+              type:  '<%=key%>',
+              hide: false,
+              styling: 'bootstrap3'
+          });
+
+          <%end%>
+
+      }
 
 
+
+
+  </script>
 
     <%= yield %>
-
-
+  <%= javascript_include_tag 'gentelella-custom'%>
+  <!-- iCheck -->
+  <%= javascript_include_tag 'icheck' %>
+  <!-- PNotify -->
+  <%= javascript_include_tag 'pnotify.js' %>
+  <%= javascript_include_tag 'pnotify.buttons' %>
+  <%= javascript_include_tag 'pnotify.nonblock' %>
   <%end%>
 
 </html>
