@@ -63,10 +63,52 @@
     <%= javascript_include_tag 'pnotify.js' %>
     <%= javascript_include_tag 'pnotify.buttons' %>
     <%= javascript_include_tag 'pnotify.nonblock' %>
+   <%if notice%>
+    <script>
 
+        function init_PNotify() {
+            console.log('init_PNotify');
+
+            new PNotify({
+                title: '  <%=notice%>',
+                type: 'success',
+                hide: false,
+                styling: 'bootstrap3'
+            });
+
+
+        }
+    </script>
+<%elsif alert%>
+    <script>
+
+        function init_PNotify() {
+            console.log('init_PNotify');
+
+            new PNotify({
+                title: '  <%=alert%>',
+                type: 'error',
+                hide: false,
+                styling: 'bootstrap3'
+            });
+
+
+        }
+    </script>
+<%end%>
     </body>
 
   <%else%>
+
+
+    <%= yield %>
+  <%= javascript_include_tag 'gentelella-custom'%>
+  <!-- iCheck -->
+  <%= javascript_include_tag 'icheck' %>
+  <!-- PNotify -->
+  <%= javascript_include_tag 'pnotify.js' %>
+  <%= javascript_include_tag 'pnotify.buttons' %>
+  <%= javascript_include_tag 'pnotify.nonblock' %>
   <script>
 
       function init_PNotify() {
@@ -84,20 +126,7 @@
           <%end%>
 
       }
-
-
-
-
   </script>
-
-    <%= yield %>
-  <%= javascript_include_tag 'gentelella-custom'%>
-  <!-- iCheck -->
-  <%= javascript_include_tag 'icheck' %>
-  <!-- PNotify -->
-  <%= javascript_include_tag 'pnotify.js' %>
-  <%= javascript_include_tag 'pnotify.buttons' %>
-  <%= javascript_include_tag 'pnotify.nonblock' %>
   <%end%>
 
 </html>

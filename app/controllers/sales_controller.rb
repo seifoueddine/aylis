@@ -57,7 +57,7 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @sale.save
-        format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
+        format.html { redirect_to @sale, notice: 'La commande a été créée avec succès.' }
         format.json { render :show, status: :created, location: @sale }
       else
         format.html { render :new }
@@ -72,7 +72,7 @@ class SalesController < ApplicationController
     respond_to do |format|
       if @sale.update(sale_params)
 
-        format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
+        format.html { redirect_to @sale, notice: 'La commande a été modifiée avec succès.' }
         format.json { render :show, status: :ok, location: @sale }
       else
         format.html { render :edit }

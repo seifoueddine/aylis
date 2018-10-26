@@ -20,7 +20,7 @@ class SaleProductsController < ApplicationController
 
     @item.save
 
-    redirect_to sale_path(sale_params[:sale_id])
+    redirect_to sale_path(sale_params[:sale_id]), notice: "Vous avez bien ajouté #{@item.quantity} #{Product.find(sale_params[:product_id]).name}"
   end
 
   def destroy
@@ -34,7 +34,7 @@ class SaleProductsController < ApplicationController
     @sale.total_price -= p * q
     @sale.save!
     respond_to do |format|
-      format.html { redirect_to sale_url(params[:id]), notice: 'Products was successfully destroyed.' }
+      format.html { redirect_to sale_url(params[:id]), alert: "Produit a été supprimé." }
       format.json { head :no_content }
     end
   end
@@ -52,7 +52,7 @@ class SaleProductsController < ApplicationController
 
     @pro.save!
     respond_to do |format|
-      format.html { redirect_to sale_url(params[:id]), notice: 'Quantity was successfully decrement.' }
+      format.html { redirect_to sale_url(params[:id]), notice: 'La quantité a été réduite avec succès.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +70,7 @@ class SaleProductsController < ApplicationController
 
     @pro.save!
     respond_to do |format|
-      format.html { redirect_to sale_url(params[:id]), notice: 'Quantity was successfully increment.' }
+      format.html { redirect_to sale_url(params[:id]), notice: 'La quantité a été augmentée avec succès.' }
       format.json { head :no_content }
     end
   end

@@ -64,7 +64,7 @@ class BanksController < ApplicationController
       end
     end
     else
-      redirect_to banks_path,  notice: "Partenaire non trouver ."
+      redirect_to banks_path,  alert: "Partenaire non trouver ."
     end
 
   end
