@@ -84,6 +84,6 @@ def check_for_token
   parameter = devise_parameter_sanitizer.sanitize(:sign_up)
   values = parameter.values
   random_id = values[7]
-  redirect_to root_path , alert: 'Vous avez mit un ID non existant.' unless User.exists?(randomID: random_id)
+  redirect_to "https://globlh/users/sign_in" , alert: "Vous avez mit un ID d'un partenaire non existant." unless User.exists?(randomID: random_id)
 end
 end
