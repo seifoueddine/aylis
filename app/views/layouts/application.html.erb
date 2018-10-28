@@ -115,13 +115,22 @@
           console.log('init_PNotify');
 
           <% flash.each do |key, value| %>
-
+          if ('<%=key%>' == 'notice'){
           new PNotify({
-              title: '  <%=value%>' ,
-              type:  '<%=key%>',
+              title: '<%=value%>' ,
+              type:  'success',
               hide: false,
               styling: 'bootstrap3'
-          });
+          });}
+          else if ('<%=key%>' == 'alert'){
+              new PNotify({
+                  title: '<%=value%>' ,
+                  type:  'info',
+                  hide: false,
+                  styling: 'bootstrap3'
+              });
+
+          }
 
           <%end%>
 

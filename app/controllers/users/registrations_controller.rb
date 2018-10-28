@@ -18,10 +18,11 @@ before_action :check_for_token, only: :create
        @useradd = Useradd.new
        @useradd.addedman = @useraa.id
        @useradd.beenadded = id
-       @user.save!
+       @user.save
        @useradd.save!
 
   end
+
   # GET /resource/sign_up
    #def new
    #  super
@@ -79,6 +80,11 @@ before_action :check_for_token, only: :create
   # end
   #
 private
+
+
+def after_inactive_sign_up_path_for(resource)
+  new_user_session_path
+end
 
 def check_for_token
   parameter = devise_parameter_sanitizer.sanitize(:sign_up)

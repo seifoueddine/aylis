@@ -12,4 +12,6 @@ class ApplicationController < ActionController::Base
     "/welcome/welcome"
   end
 
+
+
 end
