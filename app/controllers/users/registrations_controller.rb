@@ -14,6 +14,7 @@ before_action :check_for_token, only: :create
        @user.randomID = "LH#{rand(0...100000)}"
        @user.points = 0
        @user.ivoucher = 0
+       @user.number_activation = 0
        @useraa = User.find_by_randomID random_id
        @useradd = Useradd.new
        @useradd.addedman = @useraa.id
