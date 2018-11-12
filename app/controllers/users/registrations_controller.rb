@@ -11,7 +11,7 @@ before_action :check_for_token, only: :create
        values = parameter.values
        random_id = values[7]
        id= @user.id
-       @user.randomID = "LH#{rand(0...100000)}"
+       @user.randomID = "0"
        @user.points = 0
        @user.ivoucher = 0
        @user.number_activation = 0

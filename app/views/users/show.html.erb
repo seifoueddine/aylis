@@ -1,3 +1,4 @@
+<%if current_user.activate == 1 %>
 <div class="row tile_count">
   <div class="col-md-3 col-sm-5 col-xs-7 tile_stats_count">
     <span class="count_top"><i class="fa fa-user"></i> ID du partenaire </span>
@@ -26,7 +27,7 @@
   </div>
 
 </div>
-
+<%end%>
 
 <div class="">
 
@@ -41,13 +42,13 @@
             <div class="profile_img">
               <div id="crop-avatar">
                 <!-- Current avatar -->
-                <img class="img-responsive avatar-view" src="<%= @user.image.url %>" alt="Avatar" title="Change the avatar">
+                <img class="img-responsive avatar-view" src="<%= @user.image.url(:medium) %>" alt="Avatar" title="Change the avatar">
               </div>
             </div>
             <h2><%= @user.first_name %> <%= @user.last_name %></h2>
 
             <ul class="list-unstyled user_data">
-              <li><i class="fa fa-map-marker user-profile-icon"></i> <%= @user.address %>, ALGERIE
+              <li><i class="fa fa-map-marker user-profile-icon"></i> <%= @user.address %>, <%= @user.country %>
               </li>
 
               <li class="m-top-xs">
@@ -65,53 +66,44 @@
 
           </div>
 
+
           <div class="col-md-9 col-sm-9 col-xs-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2><i class="fa fa-bars"></i> Mes informations
-                </h2>
 
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-
-                <div class="col-xs-3">
-                  <!-- required for floating -->
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs tabs-left">
-                    <li class="active"><a href="#home" data-toggle="tab">Information</a>
-                    </li>
-                    <li><a href="#profile" data-toggle="tab">Information2</a>
-                    </li>
-                    <li><a href="#messages" data-toggle="tab">Information3</a>
-                    </li>
-                    <li><a href="#settings" data-toggle="tab">Information4</a>
-                    </li>
-                  </ul>
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+              <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                <li role="presentation" class="active">
+                  <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Informations personnelles</a>
+                </li>
+                <li role="presentation" class="">
+                  <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Informations de livraison</a>
+                </li>
+                <li role="presentation" class="">
+                  <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                </li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown
+                    aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+                    Reprehenderit butcher retro keffiyeh dreamcatcher
+                    synth. Cosby sweater eu banh mi, qui irure terr.</p>
                 </div>
-
-                <div class="col-xs-9">
-                  <!-- Tab panes -->
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-                      <p class="lead">Information</p>
-                      <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown
-                        aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
-                        Reprehenderit butcher retro keffiyeh dreamcatcher
-                        synth. Cosby sweater eu banh mi, qui irure terr.</p>
-                    </div>
-                    <div class="tab-pane" id="profile">Information.</div>
-                    <div class="tab-pane" id="messages">Information.</div>
-                    <div class="tab-pane" id="settings">Information.</div>
-                  </div>
+                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                  <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                    Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
+                    loko farm-to-table craft beer twee. Qui photo
+                    booth letterpress, commodo enim craft beer mlkshk aliquip</p>
                 </div>
-
-                <div class="clearfix"></div>
-
+                <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                  <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                    Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
+                    loko farm-to-table craft beer twee. Qui
+                    photo booth letterpress, commodo enim craft beer mlkshk </p>
+                </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>

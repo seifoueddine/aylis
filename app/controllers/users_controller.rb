@@ -356,6 +356,7 @@ end
       @user = User.find_by_id params[:id]
       @user.points += 50
       @user.activate = 1
+      @user.randomID = "LH#{rand(0...100000)}"
       @user.save!
       @own = current_user
       @own.number_activation -= 1

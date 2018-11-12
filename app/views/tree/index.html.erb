@@ -36,19 +36,19 @@
             <ul>
               <li>
                 <a href="<%= user_path(@user.id) %>">
-                  <img src="<%= @user.image.url %>" alt="..." class="profile_arbre" width="50px">
+                  <img src="<%= @user.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px">
                 </a>
                 <ul>
                   <li>
                     <% if @usertoshowl %>
-                      <a href="<%= "/users/#{@usertoshowl.id}" %>"><img src="<%= @usertoshowl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                      <a href="<%= "/users/#{@usertoshowl.id}" %>"><img src="<%= @usertoshowl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                     <% else %>
                       <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                     <% end %>
                     <ul>
                       <li>
                         <% if @usertoshowll %>
-                          <a href="<%= "/users/#{@usertoshowll.id}" %>"><img src="<%= @usertoshowll.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                          <a href="<%= "/users/#{@usertoshowll.id}" %>"><img src="<%= @usertoshowll.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                         <% else %>
                           <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                         <% end %>
@@ -69,20 +69,20 @@
                       </li>
                       <li>
                         <% if @usertoshowlr %>
-                          <a href="<%= "/users/#{@usertoshowlr.id}" %>"><img src="<%= @usertoshowlr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                          <a href="<%= "/users/#{@usertoshowlr.id}" %>"><img src="<%= @usertoshowlr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                         <% else %>
                           <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                         <% end %>
                         <ul>
                           <li>
-                            <% if @usertoshowlrl %><a href="<%= "/users/#{@usertoshowlrl.id}" %>"><img src="<%= @usertoshowlrl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                            <% if @usertoshowlrl %><a href="<%= "/users/#{@usertoshowlrl.id}" %>"><img src="<%= @usertoshowlrl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                             <% else %>
                               <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                             <% end %>
                           </li>
                           <li>
 
-                            <% if @usertoshowlrr %><a href="<%= "/users/#{@usertoshowlrr.id}" %>"><img src="<%= @usertoshowlrr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                            <% if @usertoshowlrr %><a href="<%= "/users/#{@usertoshowlrr.id}" %>"><img src="<%= @usertoshowlrr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                             <% else %>
                               <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                             <% end %>
@@ -94,26 +94,26 @@
                   </li>
                   <li>
                     <% if @usertoshowr %>
-                      <a href="<%= "/users/#{@usertoshowr.id}" %>"><img src="<%= @usertoshowr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                      <a href="<%= "/users/#{@usertoshowr.id}" %>"><img src="<%= @usertoshowr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                     <% else %>
                       <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                     <% end %>
                     <ul>
                       <li>
                         <% if @usertoshowrl %>
-                          <a href="<%= "/users/#{@usertoshowrl.id}" %>"><img src="<%= @usertoshowrl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                          <a href="<%= "/users/#{@usertoshowrl.id}" %>"><img src="<%= @usertoshowrl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                         <% else %>
                           <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                         <% end %>
                         <ul>
                           <li>
-                            <% if @usertoshowrll %><a href="<%= "/users/#{@usertoshowrll.id}" %> "><img src="<%= @usertoshowrll.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                            <% if @usertoshowrll %><a href="<%= "/users/#{@usertoshowrll.id}" %> "><img src="<%= @usertoshowrll.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                             <% else %>
                               <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                             <% end %>
                           </li>
                           <li>
-                            <% if @usertoshowrlr %><a href="<%= "/users/#{@usertoshowrlr.id}" %>"><img src="<%= @usertoshowrlr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                            <% if @usertoshowrlr %><a href="<%= "/users/#{@usertoshowrlr.id}" %>"><img src="<%= @usertoshowrlr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                             <% else %>
                               <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                             <% end %>
@@ -121,19 +121,19 @@
                         </ul>
                       </li>
                       <li>
-                        <% if @usertoshowrr %><a href="<%= "/users/#{@usertoshowrr.id}" %>"><img src="<%= @usertoshowrr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                        <% if @usertoshowrr %><a href="<%= "/users/#{@usertoshowrr.id}" %>"><img src="<%= @usertoshowrr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                         <% else %>
                           <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                         <% end %>
                         <ul>
                           <li>
-                            <% if @usertoshowrrl %><a href="<%= "/users/#{@usertoshowrrl.id}" %>"><img src="<%= @usertoshowrrl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                            <% if @usertoshowrrl %><a href="<%= "/users/#{@usertoshowrrl.id}" %>"><img src="<%= @usertoshowrrl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                             <% else %>
                               <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                             <% end %>
                           </li>
                           <li>
-                            <% if @usertoshowrrr %><a href="<%= "/users/#{@usertoshowrrr.id}" %>"><img src="<%= @usertoshowrrr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                            <% if @usertoshowrrr %><a href="<%= "/users/#{@usertoshowrrr.id}" %>"><img src="<%= @usertoshowrrr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                             <% else %>
                               <img src="<%= asset_path 'default-profile' %>" alt="..." class="profile_arbre" width="50px">
                             <% end %>
@@ -152,14 +152,14 @@
               <ul>
                 <li>
                   <a href="<%= "/users/#{@user.id}" %>"><%= @user.last_name %> <%= @user.first_name %>
-                    <img src="<%= @user.image.url %>" alt="..." class="profile_arbre" width="50px">
+                    <img src="<%= @user.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px">
                   </a>
                   <ul>
                     <li><a>Compte 1</a>
                       <ul>
                         <li>
                           <% if @usertoshowl %><a><%= @usertoshowl.last_name %> <%= @usertoshowl.first_name %>
-                          <img src="<%= @usertoshowl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                          <img src="<%= @usertoshowl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                           <% else %>Compte n'existe pas
                           <% end %>
                           <ul>
@@ -182,7 +182,7 @@
                             </li>
                             <li>
                               <% if @usertoshowlr %><a><%= @usertoshowlr.last_name %> <%= @usertoshowlr.first_name %>
-                              <img src="<%= @usertoshowlr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                              <img src="<%= @usertoshowlr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                               <% else %>Compte n'existe pas
                               <% end %>
                               <ul>
@@ -204,13 +204,13 @@
                         </li>
                         <li>
                           <% if @usertoshowr %><a><%= @usertoshowr.last_name %> <%= @usertoshowr.first_name %>
-                          <img src="<%= @usertoshowr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                          <img src="<%= @usertoshowr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                           <% else %>Compte n'existe pas
                           <% end %>
                           <ul>
                             <li>
                               <% if @usertoshowrl %><a><%= @usertoshowrl.last_name %> <%= @usertoshowrl.first_name %>
-                              <img src="<%= @usertoshowrl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                              <img src="<%= @usertoshowrl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                               <% else %>Compte n'existe pas
                               <% end %>
                               <ul>
@@ -251,7 +251,7 @@
                       <ul>
                         <li>
                           <% if @usertoshowl %><a><%= @usertoshowl.last_name %> <%= @usertoshowl.first_name %>
-                          <img src="<%= @usertoshowl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                          <img src="<%= @usertoshowl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                           <% else %>Compte n'existe pas
                           <% end %>
                           <ul>
@@ -274,7 +274,7 @@
                             </li>
                             <li>
                               <% if @usertoshowlr %><a><%= @usertoshowlr.last_name %> <%= @usertoshowlr.first_name %>
-                              <img src="<%= @usertoshowlr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                              <img src="<%= @usertoshowlr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                               <% else %>Compte n'existe pas
                               <% end %>
                               <ul>
@@ -296,13 +296,13 @@
                         </li>
                         <li>
                           <% if @usertoshowr %><a><%= @usertoshowr.last_name %> <%= @usertoshowr.first_name %>
-                          <img src="<%= @usertoshowr.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                          <img src="<%= @usertoshowr.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                           <% else %>Compte n'existe pas
                           <% end %>
                           <ul>
                             <li>
                               <% if @usertoshowrl %><a><%= @usertoshowrl.last_name %> <%= @usertoshowrl.first_name %>
-                              <img src="<%= @usertoshowrl.image.url %>" alt="..." class="profile_arbre" width="50px"></a>
+                              <img src="<%= @usertoshowrl.image.url(:medium) %>" alt="..." class="profile_arbre" width="50px"></a>
                               <% else %>Compte n'existe pas
                               <% end %>
                               <ul>
