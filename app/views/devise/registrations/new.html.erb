@@ -16,7 +16,7 @@
  <div class="container">
    <div class="stepwizard">
      <div class="stepwizard-row setup-panel">
-       <div class="stepwizard-step col-xs-3">
+       <div class="stepwizard-step col-xs-1">
          <a href="#step-1" type="button" class="btn btn-success btn-circle"><span class="	glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
          <p><small>ID</small></p>
        </div>
@@ -25,11 +25,17 @@
          <p><small>Informations personnelles</small></p>
        </div>
        <div class="stepwizard-step col-xs-3">
-         <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a>
-         <p><small>MDP</small></p>
+         <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></a>
+         <p>
+           <small>Information de livraison</small>
+         </p>
        </div>
        <div class="stepwizard-step col-xs-3">
-         <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+         <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a>
+         <p><small>MDP</small></p>f
+       </div>
+       <div class="stepwizard-step col-xs-1">
+         <a href="#step-5" type="button" class="btn btn-default btn-circle" disabled="disabled"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
          <p><small>Final!</small></p>
        </div>
      </div>
@@ -77,6 +83,25 @@
            <label class="control-label">Adresse</label>
            <%= f.text_area :address, autofocus: true, autocomplete: "adress", class: "form-control input-lg", placeholder: "Adresse" %>
          </div>
+
+         <div class="form-group">
+           <label class="control-label">Ville</label>
+           <%= f.text_field :city, autofocus: true, autocomplete: "Ville", class: "form-control input-lg", placeholder: "Téléphone" %>
+
+         </div>
+
+         <div class="form-group">
+           <label class="control-label">Etat</label>
+           <%= f.text_field :state, autofocus: true, autocomplete: "Etat", class: "form-control input-lg", placeholder: "Téléphone" %>
+
+         </div>
+
+         <div class="form-group">
+           <label class="control-label">Pays</label>
+           <%= f.text_field :country, autofocus: true, autocomplete: "pays", class: "form-control input-lg", placeholder: "Téléphone" %>
+
+         </div>
+
          <div class="form-group">
            <label class="control-label">Num de téléphone</label>
            <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control input-lg", placeholder: "Téléphone" %>
@@ -86,8 +111,28 @@
          <button class="btn btn-spe nextBtn pull-right" type="button">Suivant</button>
        </div>
      </div>
-
      <div class="panel  setup-content" id="step-3">
+       <div class="panel-heading">
+         <h3 class="panel-title">Information de livraison</h3>
+       </div>
+       <div class="panel-body">
+         <div class="form-group">
+           <label class="control-label">Addresse de livraison 1</label>
+           <%= f.text_area :delivery_address1, autofocus: true, class: "form-control input-lg", placeholder: "Addresse de livraison 1", require: true %>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Addresse de livraison 2</label>
+           <%= f.text_area :delivery_address2, autofocus: true, class: "form-control input-lg", placeholder: "Addresse de livraison 2" %>
+         </div>
+         <div class="form-group">
+           <label class="control-label">Addresse de livraison 3</label>
+           <%= f.text_area :delivery_address3, autofocus: true, class: "form-control input-lg", placeholder: "Addresse de livraison 3"%>
+         </div>
+         <%= link_to ' <button class="btn btn-spe pull-right" type="button" >Annuler</button>'.html_safe, root_path %>
+         <button class="btn btn-spe nextBtn pull-right" type="button">Suivant</button>
+       </div>
+     </div>
+     <div class="panel  setup-content" id="step-4">
        <div class="panel-heading">
          <h3 class="panel-title">Mot de passe</h3>
        </div>
@@ -108,7 +153,7 @@
        </div>
      </div>
 
-     <div class="panel  setup-content" id="step-4">
+     <div class="panel  setup-content" id="step-5">
        <div class="panel-heading">
          <h3 class="panel-title">Final!</h3>
        </div>
@@ -138,7 +183,7 @@
 
     .stepwizard-step p {
       margin-top: 0px;
-      color: white;
+      color: #2b5876;
     }
 
     .stepwizard-row {
