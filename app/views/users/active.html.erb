@@ -31,7 +31,7 @@
 
   <div class="form-group">
     <%= label_tag :beneath,"Listes" %>
-    <%= select_tag :beneath, options_for_select(@userlist.map {|d|[ d.last_name,d.randomID ] if (d.right.nil? || d.left.nil?)}.compact) , {prompt: "Au-dessous  " , class: 'form-control', required: true} %>
+    <%= select_tag :beneath, options_for_select(@userlist.map {|d|[ "#{d.first_name} #{d.last_name} - #{d.randomID}",d.randomID ] if (d.right.nil? || d.left.nil?)}.compact) , {prompt: "Au-dessous  " , class: 'form-control', required: true} %>
   </div>
 
 
