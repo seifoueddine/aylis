@@ -79,6 +79,11 @@
            <label class="control-label">Sexe</label>
            <%= f.select :sexe, User::SEXE.select {|d| [d[0], d[1]]}, {prompt: "Choisissez votre sexe "}, {class: 'form-control', required: true} %>
          </div>
+<!--         <div class="field">
+           <%#= f.label :birth_day, "Date de naissance" %>
+           <%#= f.text_field :birth_day, class: 'datepicker form-control', 'data-date-format' => "dd/mm/yyyy", id: 'date' %>
+         </div>
+         -->
          <div class="form-group">
            <label class="control-label">Adresse</label>
            <%= f.text_area :address, autofocus: true, autocomplete: "adress", class: "form-control input-lg", placeholder: "Adresse" %>
@@ -86,27 +91,41 @@
 
          <div class="form-group">
            <label class="control-label">Ville</label>
-           <%= f.text_field :city, autofocus: true, autocomplete: "Ville", class: "form-control input-lg", placeholder: "Téléphone" %>
+           <%= f.text_field :city, autofocus: true, autocomplete: "Ville", class: "form-control input-lg", placeholder: "Ville" %>
 
          </div>
 
          <div class="form-group">
            <label class="control-label">Etat</label>
-           <%= f.text_field :state, autofocus: true, autocomplete: "Etat", class: "form-control input-lg", placeholder: "Téléphone" %>
+           <%= f.text_field :state, autofocus: true, autocomplete: "Etat", class: "form-control input-lg", placeholder: "Etat" %>
 
          </div>
 
          <div class="form-group">
            <label class="control-label">Pays</label>
-           <%= f.text_field :country, autofocus: true, autocomplete: "pays", class: "form-control input-lg", placeholder: "Téléphone" %>
+           <%= f.text_field :country, autofocus: true, autocomplete: "pays", class: "form-control input-lg", placeholder: "Pays" %>
 
          </div>
 
          <div class="form-group">
            <label class="control-label">Num de téléphone</label>
-           <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control input-lg", placeholder: "Téléphone" %>
+           <%= f.text_field :phone, id: :contact_phone, autofocus: true, autocomplete: "phone", class: "form-control input-lg", placeholder: "Téléphone Ex: +213(0)XXXXXXXXX" %>
 
          </div>
+
+         <div class="form-group">
+           <label class="control-label">Compte CCP</label>
+           <%= f.text_field :cpp, autofocus: true, autocomplete: "pays", class: "form-control input-lg", placeholder: "Compte CCP" %>
+
+         </div>
+
+         <div class="form-group">
+           <label class="control-label">Compte bancanire</label>
+           <%= f.text_field :bank_account, autofocus: true, autocomplete: "Bank account", class: "form-control input-lg", placeholder: "Compte bancaire" %>
+
+         </div>
+
+
          <%= link_to ' <button class="btn btn-spe pull-right" type="button" >Annuler</button>'.html_safe, root_path %>
          <button class="btn btn-spe nextBtn pull-right" type="button">Suivant</button>
        </div>
@@ -301,3 +320,38 @@
     });
 
 </script>
+
+
+
+ <script>
+     var e1 =document.getElementById('contact_phone');
+     if (e1) {
+         e1.addEventListener('input', function (e) {
+             var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,2})(\d{0,2})(\d{0,2})(\d{0,2})(\d{0,1})/);
+             e.target.value = (x[1] ? "+"+213+"("+0+")": '') + (x[2] ? x[2] : '') + (x[3] ? x[3] : '') + (x[4] ? x[4] : '') +
+                 (x[5] ?  x[5] : '') + (x[6] ?  x[6] : '');
+         });}
+ </script>
+
+
+ <script>
+     $(function() {
+         $( "#date" ).datepicker({
+             dateFormat : 'mm/dd/yy',
+             changeMonth : true,
+             changeYear : true,
+             yearRange: '-100y:c+nn',
+             maxDate: '-1d'
+         });
+     });
+
+ </script>
+
+ <script>
+     var e3 = document.getElementById('date');
+     if(e3) {
+         e3.addEventListener('input', function (e) {
+             var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
+             e.target.value = (x[1] ? x[1] : '') + (x[2] ? '/' + x[2] : '') + (x[3] ? '/' + x[3] : '');
+         });}
+ </script>
