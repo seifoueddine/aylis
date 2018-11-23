@@ -89,31 +89,33 @@
 
 
 
-      <br><br><br> <br><br>
+      <br><br><br> <br><br><br>
       <div class="btn-group">
         <a class="btn2" href=<%= new_user_registration_path %>>S'inscrire</a>
         <a class="btn2" href="#" type="button" data-toggle="modal" data-target="#myModal">S'identifier</a>
       </div>
     </div>
     <div class="row header-features text-center hero-row hero-bottom">
-      <div class="col-sm-6 col-md-4 col-lg-4">
-        <br><br><br>
-        <div>
+      <div class="col-sm-6 col-md-4 col-lg-4 back">
 
-          <h4>Many people spend too much time trying to be the captain of someone else’s boat. Learn to be a Lighthouse and the boats will find their way.</h4>
+        <div>
+          <h3>We make the difference</h3>
+          <p>Many people spend too much time trying to be the captain of someone else’s boat. Learn to be a Lighthouse and the boats will find  <br> their way.</p>
         </div>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-4">
-        <br><br><br>
-        <div>
+      <div class="col-sm-6 col-md-4 col-lg-4 back">
 
-          <h4>يقضي العديد من الأشخاص الكثير من الوقت في محاولة أن يكون قائد سفينة شخص آخر. تعلم أن تكون منارة والقوارب سوف تجد طريقها.</h4>
+        <div>
+           <h3>نحن نصنع الفارق</h3>
+
+          <p>يقضي العديد من الأشخاص الكثير من الوقت في محاولة أن يكون قائد سفينة شخص آخر. تعلم أن تكون منارة والقوارب سوف تجد طريقها.</p>
         </div>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-4">
-        <br><br><br>
+      <div class="col-sm-6 col-md-4 col-lg-4 back">
+
         <div>
-          <h4>Beaucoup de gens passent trop de temps à essayer d’être le capitaine du bateau de quelqu'un d’autre. Apprenez à être un phare et les bateaux trouveront leur chemin.</h4>
+          <h3>Nous faisons la difference</h3>
+          <p>Beaucoup de gens passent trop de temps à essayer d’être le capitaine du bateau de quelqu'un d’autre. Apprenez à être un phare et les bateaux trouveront leur chemin.</p>
         </div>
       </div>
     </div>
@@ -122,7 +124,7 @@
 </div>
 
 <section id="footer">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row text-center text-xs-center text-sm-left text-md-left">
     </div>
     <div class="row" style="margin-right: 0px;">
@@ -198,6 +200,13 @@
   .container-fluid {
     margin: 0;
     padding: 0;
+  }
+
+  .back {
+    color : white; !important;
+    background: linear-gradient(to right, #ce1010 0%, #2b5876 51%, #ce1010 100%); !important;
+    opacity: 0.8;
+
   }
 
   .navbar-header > div > span {
@@ -282,7 +291,7 @@
   }
 
   #footer {
-    background: linear-gradient(to right, #2b5876 0%, #ce1010 51%, #2b5876 100%); !important;
+    background: darkgrey;
 
   }
 
@@ -354,7 +363,26 @@
       border-left: transparent;
       padding-bottom: 0px;
       margin-bottom: 10px;
+
     }
+
+
+  }
+
+
+  @media (max-width: 367px) {
+    #footer h5 {
+      padding-left: 0;
+      border-left: transparent;
+      padding-bottom: 0px;
+      margin-bottom: 10px;
+
+    }
+
+    #footer {
+      width: 370px;
+    }
+
   }
 
   .alert {
