@@ -69,6 +69,10 @@
                   <%= link_to "parrainer", "/users/active/#{user.id}", class: 'btn btn-info' %>
                 <% end %>
 
+                <% unless user.treeactivation %>
+                  <%= link_to "Super Activation", "/users/superactive/#{user.id}", class: 'btn btn-info' %>
+                <% end %>
+
               </td>
             </tr>
           <% end %>

@@ -32,7 +32,9 @@
             <%else%>
             <li><%= link_to 'Mon equipe', users_path%></a></li>
             <%end%>
+          <%if current_user.treeactivation %>
           <li><%= link_to 'Mon arbre', "/tree/#{current_user.id}" %></a></li>
+          <%end%>
         </ul>
       </li>
         <%else%>

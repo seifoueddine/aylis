@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy,:reset_password,:active]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,:reset_password,:active, :superactive]
   before_action :authenticate_user!
 
 
@@ -202,6 +202,14 @@ end
   end
 
   def reset_password
+  end
+
+  def superactive
+    @user.treeactivation = 1
+    @user.save!
+    redirect_to users_path,  notice: "Vous avez bien fait la super activation."
+
+
   end
 
   def active
@@ -419,7 +427,7 @@ end
   end
 
   def user_params
-    params.require(:user).permit(:first_name,:last_name, :email, :password,:password_confirmation,:addpartner,:addBY,:image,:beneath,:phone,:activate,:side,:beneath,:number_activation,:sexe,:date)
+    params.require(:user).permit(:first_name,:last_name, :email, :password,:password_confirmation,:addpartner,:addBY,:image,:beneath,:phone,:activate,:side,:beneath,:number_activation,:sexe,:date,:treeactivation)
   end
 
   def user_params2
