@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'confirmation/index'
+
   get 'send/index'
 
   resources :sales
@@ -70,6 +72,7 @@ Rails.application.routes.draw do
     get "/banks/25/send_activation",              to:'banks#send_activation' , as: "send_activation"
     post  'banks/activations', to: 'banks#activations'
     post  'users/activations' , to: 'users#activations'
+    post  'confirmation/ID' , to: 'confirmation#ID'
 
 
 end

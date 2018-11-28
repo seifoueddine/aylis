@@ -50,7 +50,9 @@
        <div class="panel-body">
          <div class="form-group">
            <label class="control-label">ID</label>
-           <%= f.text_field :addBY, autofocus: true, class: "form-control", placeholder: "Entrer ID" , required: "required" %>
+           <%= f.text_field :addBY, value: params[:addBY] ,autofocus: true, class: "form-control", placeholder: "Entrer ID" , required: "required" ,disabled: true  %>
+           <%= f.hidden_field :addBY, value: params[:addBY] %>
+
          </div>
 
          <%= link_to ' <button class="btn btn-spe pull-right" type="button" >Annuler</button>'.html_safe, root_path %>
