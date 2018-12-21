@@ -81,6 +81,7 @@ namespace :deploy do
 
   set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
 
+=begin
   namespace :paperclip do
     desc "build missing paperclip styles"
     task :build_missing_styles do
@@ -95,6 +96,7 @@ namespace :deploy do
   end
 
   after("deploy:compile_assets", "paperclip:build_missing_styles")
+=end
 
 =begin
   before 'deploy:update_code', 'thinking_sphinx:stop'
