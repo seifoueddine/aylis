@@ -1,6 +1,6 @@
 
 # Change these
-server '91.205.175.3', roles: [:web, :app, :db], primary: true
+server '51.38.231.157', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:seifoueddine/aylis.git'
 set :application,     'aylis'
