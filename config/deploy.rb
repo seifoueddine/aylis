@@ -80,9 +80,11 @@ namespace :deploy do
 
 
   set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
+=begin
   set :assets_dependencies, %w(app/assets lib/assets vendor/assets Gemfile.lock config/routes.rb)
   Rake::Task["deploy:assets:precompile"].clear_actions
   class PrecompileRequired < StandardError; end
+=end
 
 
   namespace :paperclip do
