@@ -86,6 +86,7 @@ namespace :deploy do
   class PrecompileRequired < StandardError; end
 =end
 
+=begin
 
   namespace :paperclip do
     desc "build missing paperclip styles"
@@ -101,6 +102,7 @@ namespace :deploy do
   end
 
   after("deploy:compile_assets", "paperclip:build_missing_styles")
+=end
 
 
 =begin
