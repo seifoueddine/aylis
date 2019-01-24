@@ -23,6 +23,10 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def clean
+    redirect_to products_path, notice: 'Votre pack de formation a été bien activé.'
+  end
+
   # POST /products
   # POST /products.json
   def create

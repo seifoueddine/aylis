@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get '/users/active/:id' , to: 'users#active'
   get '/users/superactive/:id' , to: 'users#superactive'
   get '/send/index' , to: 'send#index'
-
+  get 'clean' => "products#clean"
   get '/sales/12565/index2' , to: 'sales#index2'
 
   get '/send/:id/sell' , to: 'send#sell'

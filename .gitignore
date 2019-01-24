@@ -31,3 +31,6 @@ config/cable.yml
 /config/development.sphinx.conf
 db/sphinx
 config/environments/development.rb
+
+#nginx
+/config/nginx.conf
