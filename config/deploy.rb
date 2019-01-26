@@ -86,7 +86,6 @@ namespace :deploy do
 
 
 
-=begin
   namespace :paperclip do
     desc "build missing paperclip styles"
     task :build_missing_styles do
@@ -101,7 +100,6 @@ namespace :deploy do
   end
 
   after("deploy:compile_assets", "paperclip:build_missing_styles")
-=end
 
 
 =begin
