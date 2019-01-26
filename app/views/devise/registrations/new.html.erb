@@ -50,7 +50,7 @@
        <div class="panel-body">
          <div class="form-group">
            <label class="control-label">ID</label>
-           <%= f.text_field :addBY, value: params[:addBY] ,autofocus: true, class: "form-control", placeholder: "Entrer ID" , required: "required" ,disabled: true  %>
+           <%= f.text_field :addBY, value: User.find_by_randomID( params[:addBY]).last_name ,autofocus: true, class: "form-control", placeholder: "Entrer ID" , required: "required" ,disabled: true  %>
            <%= f.hidden_field :addBY, value: params[:addBY] %>
 
          </div>
