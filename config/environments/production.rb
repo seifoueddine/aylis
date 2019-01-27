@@ -94,10 +94,10 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
+      address: "ssl0.ovh.net",
       domain: "lhpropartner.pro",
-      port: 587,
-      user_name: "contact",
+      port: 465,
+      user_name: "contact@lhpropartner.pro",
       password: "contactlhpropartner",
       authentication: 'plain',
       enable_starttls_auto: true
