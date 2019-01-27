@@ -91,6 +91,6 @@ def check_for_token
   parameter = devise_parameter_sanitizer.sanitize(:sign_up)
   values = parameter.values
   random_id = values[7]
-  redirect_to "https://globlh.com/users/sign_in" , alert: "veuillez bien confirmer l'ID du partenaire SVP." unless User.exists?(randomID: random_id)
+  redirect_to "https://lhpropartner.pro/users/sign_in" , alert: "veuillez bien confirmer l'ID du partenaire SVP." unless User.exists?(randomID: random_id)
 end
 end
