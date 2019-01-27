@@ -79,7 +79,6 @@ namespace :deploy do
   end
 
 
-=begin
   set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
    set :assets_dependencies, %w(app/assets lib/assets vendor/assets Gemfile.lock config/routes.rb)
    Rake::Task["deploy:assets:precompile"].clear_actions
@@ -101,7 +100,6 @@ namespace :deploy do
   end
 
   after("deploy:compile_assets", "paperclip:build_missing_styles")
-=end
 
 
 =begin
