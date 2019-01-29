@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'our_partners/index'
+
   get 'confirmation/index'
 
   get 'send/index'
